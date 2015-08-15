@@ -280,34 +280,47 @@ gulp.task("build", ["config"], function() {
 	return gulp.start(["build:server", "build:client", "build:styles", "build:static"]);
 });
 
+gulp.task("package", ["build"], function() {
+	if (config.package) {
+		let ppath = path.parse(config.package);
+		let outDir = ppath.dir;
+		let outFile = ppath.base;
+
+		return gulp.src("package.json")
+			.pipe(rename(outFile))
+			.pipe(gulp.dest(outDir));
+	}
+});
+
 gulp.task("watch", function() {
 	livereload.listen();
 
 	gulp.watch("build.conf.js", ["config"]);
+	gulp.watch("package.json", ["package"]);
 
 	config.modules.forEach(function(module) {
 		if (module.transforms.static) {
 			module.transforms.static.forEach(function(transform) {
-				var ppath = path.parse(transform.source);
+				let ppath = path.parse(transform.source);
 
-				var wpath = path.join(module.path, ppath.dir, "**/*");
+				let wpath = path.join(module.path, ppath.dir, "**/*");
 				gulp.watch(wpath, ["build:static"]);
 			});
 		}
 
 		if (module.transforms.styles) {
 			module.transforms.styles.forEach(function(transform) {
-				var ppath = path.parse(transform.source);
+				let ppath = path.parse(transform.source);
 
-				var wpath = path.join(module.path, ppath.dir, "**/*.scss");
+				let wpath = path.join(module.path, ppath.dir, "**/*.scss");
 				gulp.watch(wpath, ["build:styles"]);
 			});
 		}
 
 		if (module.transforms.serverScripts) {
 			module.transforms.serverScripts.forEach(function(transform) {
-				var ppath = path.parse(transform.source);
-				var wpath = path.join(module.path, ppath.dir, "**/*.ts");
+				let ppath = path.parse(transform.source);
+				let wpath = path.join(module.path, ppath.dir, "**/*.ts");
 
 				gulp.watch(wpath, ["build:serverScripts"]);
 			});
@@ -318,5 +331,5 @@ gulp.task("watch", function() {
 gulp.task("default", ["config"], function() {
 	singleBuild = false;
 
-	return gulp.start(["build", "watch"]);
+	return gulp.start(["package", "watch"]);
 })

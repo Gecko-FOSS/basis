@@ -1,5 +1,6 @@
 var config = {
 	preset: "development",
+	package: "build/package.json",
 	modules: [
 		{
 			name: "test",

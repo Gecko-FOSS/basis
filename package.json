@@ -1,8 +1,8 @@
 {
   "name": "basis",
   "version": "1.0.0",
-  "description": "A basis for everything",
-  "main": "index.js",
+  "description": "A basis for building most anything!",
+  "main": "main.js",
   "dependencies": {},
   "devDependencies": {
     "browserify": "^11.0.1",
