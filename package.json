@@ -43,10 +43,5 @@
   "bugs": {
     "url": "https://github.com/gecko-foss/basis/issues"
   },
-  "homepage": "https://github.com/gecko-foss/basis#readme",
-  "jspm": {
-    "directories": {},
-    "dependencies": {},
-    "devDependencies": {}
-  }
+  "homepage": "https://github.com/gecko-foss/basis#readme"
 }
