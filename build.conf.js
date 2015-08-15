@@ -9,7 +9,7 @@ var config = {
 				loadPath: []
 			},
 			server: {
-
+				
 			},
 			client: {
 

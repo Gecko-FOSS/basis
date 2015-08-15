@@ -88,10 +88,12 @@ gulp.task("config", function() {
 		modules: [],
 		client: {
 			module: "commonjs",
-			sortOutput: true
+			sortOutput: true,
+			target: "ES5"
 		},
 		server: {
-			module: "commonjs"
+			module: "commonjs",
+			target: "ES5"
 		},
 		styles: {
 		}
