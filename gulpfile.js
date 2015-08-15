@@ -68,11 +68,13 @@ function ensureModule(module) {
 
 let configPresets = {
 	production: {
-		minify: true
+		minify: true,
+		sourcemaps: false
 	},
 
 	development: {
-		minify: false
+		minify: false,
+		sourcemaps: true
 	}
 }
 
@@ -85,17 +87,13 @@ gulp.task("config", function() {
 	config = {
 		modules: [],
 		client: {
-			typescript: require("typescript"),
 			module: "commonjs",
 			sortOutput: true
 		},
 		server: {
-			typescript: require("typescript"),
 			module: "commonjs"
 		},
 		styles: {
-			sourcemap: true,
-			style: "expanded"
 		}
 	};
 
@@ -115,6 +113,10 @@ gulp.task("config", function() {
 
 	_.assign(config, userConfig);
 
+	if (config.styles.sourcemap === undefined && config.sourcemaps !== undefined) {
+		config.styles.sourcemap = config.sourcemaps;
+	}
+	
 	config.modules = _.map(config.modules, ensureModule);
 });
 
@@ -131,10 +133,10 @@ gulp.task("build:server", function() {
 			let outFile = path.parse(transform.dest).base;
 
 			let stream = gulp.src(path.join(module.path, transform.source))
-				.pipe(plumber(plumberopts))
+				.pipe(gulpif(config.sourcemaps, plumber(plumberopts)))
 				.pipe(sourcemaps.init())
 				.pipe(gulpTypescript(config.server))
-				.pipe(sourcemaps.write("./"))
+				.pipe(gulpif(config.sourcemaps, sourcemaps.write("./")))
 				.pipe(gulp.dest(transform.dest));
 
 			merged.add(stream);
@@ -188,10 +190,10 @@ gulp.task("build:client", function() {
 					})
 					.pipe(source(transform.source))
 					.pipe(buffer())
-					.pipe(sourcemaps.init({loadMaps: true}))
+					.pipe(gulpif(config.sourcemaps, sourcemaps.init({loadMaps: true})))
 						.pipe(gulpif(config.minify, uglify()))
 						.pipe(rename(ppath.base))
-					.pipe(sourcemaps.write("./"))
+					.pipe(gulpif(config.sourcemaps, sourcemaps.write("./")))
 					.pipe(gulp.dest(outDir))
 					.pipe(notify({
 						message: "Bundling done!",
@@ -233,7 +235,7 @@ gulp.task("build:styles", function() {
 				.pipe(gulpif(config.minify, minifyCSS({
 					processImport: false
 				})))
-				.pipe(sourcemaps.write("./"))
+				.pipe(gulpif(config.sourcemaps, sourcemaps.write("./")))
 				.pipe(gulp.dest(path.join(module.path, ppath.dir)));
 
 			merged.add(stream);
