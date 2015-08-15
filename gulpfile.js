@@ -282,23 +282,10 @@ gulp.task("build", ["config"], function() {
 	return gulp.start(["build:server", "build:client", "build:styles", "build:static"]);
 });
 
-gulp.task("package", ["build"], function() {
-	if (config.package) {
-		let ppath = path.parse(config.package);
-		let outDir = ppath.dir;
-		let outFile = ppath.base;
-
-		return gulp.src("package.json")
-			.pipe(rename(outFile))
-			.pipe(gulp.dest(outDir));
-	}
-});
-
 gulp.task("watch", function() {
 	livereload.listen();
 
 	gulp.watch("build.conf.js", ["config"]);
-	gulp.watch("package.json", ["package"]);
 
 	config.modules.forEach(function(module) {
 		if (module.transforms.static) {
@@ -333,5 +320,5 @@ gulp.task("watch", function() {
 gulp.task("default", ["config"], function() {
 	singleBuild = false;
 
-	return gulp.start(["package", "watch"]);
+	return gulp.start(["build", "watch"]);
 })
