@@ -44,7 +44,6 @@ let livereload = require("gulp-livereload");
 let watch = require("gulp-watch");
 let sourcemaps = require("gulp-sourcemaps");
 let rename = require("gulp-rename");
-let shell = require("gulp-shell");
 
 // Scripts
 var browserify = require("browserify");
@@ -118,7 +117,7 @@ gulp.task("config", function() {
 	if (config.styles.sourcemap === undefined && config.sourcemaps !== undefined) {
 		config.styles.sourcemap = config.sourcemaps;
 	}
-	
+
 	config.modules = _.map(config.modules, ensureModule);
 });
 
