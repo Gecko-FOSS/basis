@@ -1,5 +1,8 @@
 {
 	"compilerOptions": {
 		"module": "commonjs"
-	}
+	},
+	"files": [
+		"typings/tsd.d.ts"
+	]
 }

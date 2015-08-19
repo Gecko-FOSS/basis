@@ -133,7 +133,10 @@ gulp.task("build:server", function() {
 		module.transforms.server.forEach(function(transform) {
 			let outFile = path.parse(transform.dest).base;
 
-			let stream = gulp.src(path.join(module.path, transform.source))
+			let stream = gulp.src([
+					path.join(module.path, transform.source),
+					__dirname + "/typings/tsd.d.ts"
+				])
 				.pipe(gulpif(config.sourcemaps, plumber(plumberopts)))
 				.pipe(sourcemaps.init())
 				.pipe(gulpTypescript(config.server))
@@ -169,7 +172,10 @@ gulp.task("build:client", function() {
 
 			let args = watchify.args;
 			args.extensions = [".ts"];
-			args.entries = path.join(module.path, transform.source);
+			args.entries = [
+				path.join(module.path, transform.source),
+				__dirname + "/typings/tsd.d.ts"
+			];
 			args.debug = true;
 
 			let bundler = browserify(args);
