@@ -9,7 +9,7 @@ var config = {
 				loadPath: []
 			},
 			server: {
-				
+
 			},
 			client: {
 
@@ -29,7 +29,7 @@ var config = {
 				],
 				styles: [
 					{
-						source: "src/styles/main.scss", 
+						source: "src/styles/main.scss",
 						dest: "build/static/bundle.css"
 					}
 				],
