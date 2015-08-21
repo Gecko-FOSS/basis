@@ -34,12 +34,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gecko-foss/basis.git"
+    "url": "git+https://github.com/LPGhatguy/basis.git"
   },
-  "author": "Gecko Designs",
+  "author": "Lucien Greathouse <me@lpghatguy.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gecko-foss/basis/issues"
+    "url": "https://github.com/LPGhatguy/basis/issues"
   },
-  "homepage": "https://github.com/gecko-foss/basis#readme"
+  "homepage": "https://github.com/LPGhatguy/basis#readme"
 }
