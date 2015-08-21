@@ -95,6 +95,7 @@ gulp.task("config", function() {
 			target: "ES5"
 		},
 		styles: {
+			require: "sass-globbing"
 		}
 	};
 
