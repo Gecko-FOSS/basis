@@ -15,9 +15,7 @@ let gulp = require("gulp");
 let fs = require("fs");
 let _ = require("lodash");
 
-// Constants
-const systemPath = path.join(__dirname, "/node_modules/systemjs/dist/system.js");
-
+// Runtime variables
 let singleBuild = true;
 let userConfig;
 let config;
