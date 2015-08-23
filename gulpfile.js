@@ -44,9 +44,9 @@ let sourcemaps = require("gulp-sourcemaps");
 let rename = require("gulp-rename");
 
 // Scripts
-var browserify = require("browserify");
-var watchify = require("watchify");
-var tsify = require("tsify");
+let browserify = require("browserify");
+let watchify = require("watchify");
+let tsify = require("tsify");
 let uglify = require("gulp-uglify");
 let gulpTypescript = require("gulp-typescript");
 
