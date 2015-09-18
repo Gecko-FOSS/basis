@@ -1,10 +1,10 @@
 var config = {
 	preset: "development",
-	package: "build/package.json",
 	modules: [
 		{
 			name: "test",
 			path: __dirname,
+			productionBuildPath: "production",
 			sass: {
 				loadPath: []
 			},

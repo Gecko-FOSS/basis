@@ -1,6 +1,8 @@
 {
 	"compilerOptions": {
-		"module": "commonjs"
+		"module": "commonjs",
+		"target": "ES5",
+		"moduleResolution": "classic"
 	},
 	"files": [
 		"typings/tsd.d.ts"

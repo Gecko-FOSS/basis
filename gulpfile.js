@@ -49,6 +49,7 @@ let watchify = require("watchify");
 let tsify = require("tsify");
 let uglify = require("gulp-uglify");
 let gulpTypescript = require("gulp-typescript");
+let typescript = require("typescript");
 
 // Styles
 let sass = require("gulp-ruby-sass");
@@ -86,11 +87,15 @@ gulp.task("config", function() {
 		client: {
 			module: "commonjs",
 			sortOutput: true,
-			target: "ES5"
+			target: "ES5",
+			moduleResolution: "classic",
+			typescript: typescript
 		},
 		server: {
 			module: "commonjs",
-			target: "ES5"
+			target: "ES5",
+			moduleResolution: "classic",
+			typescript: typescript
 		},
 		styles: {
 			require: "sass-globbing"
@@ -285,6 +290,10 @@ gulp.task("build:static", function() {
 });
 
 gulp.task("build", ["config"], function() {
+	return gulp.start(["_build"]);
+});
+
+gulp.task("_build", function() {
 	return gulp.start(["build:server", "build:client", "build:styles", "build:static"]);
 });
 
@@ -323,8 +332,26 @@ gulp.task("watch", function() {
 	});
 });
 
+gulp.task("production", ["config"], function() {
+	_.assign(config, configPresets.production);
+
+	_.forEach(config.modules, (module) => {
+		let prod = module.productionBuildPath;
+
+		if (prod) {
+			_.forEach(module.transforms, (types) => {
+				_.forEach(types, (transform) => {
+					transform.dest = path.join(prod, transform.dest);
+				});
+			});
+		}
+	});
+
+	return gulp.start(["_build"]);
+});
+
 gulp.task("default", ["config"], function() {
 	singleBuild = false;
 
-	return gulp.start(["build", "watch"]);
-})
+	return gulp.start(["_build", "watch"]);
+});
