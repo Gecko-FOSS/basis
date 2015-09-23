@@ -18,7 +18,7 @@ var config = {
 			transforms: {
 				server: [
 					{
-						source: "node_modules/@server/*",
+						source: "node_modules/@server/**/*",
 						dest: ""
 					}
 				],
