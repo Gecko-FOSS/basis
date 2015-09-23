@@ -68,7 +68,8 @@ function ensureModule(module) {
 let configPresets = {
 	production: {
 		minify: true,
-		sourcemaps: false
+		sourcemaps: false,
+		isProduction: true
 	},
 
 	development: {
@@ -135,8 +136,11 @@ gulp.task("build:server", function() {
 			return;
 		}
 
+		let buildPath = config.isProduction ? module.productionBuildPath : module.buildPath;
+
 		module.transforms.server.forEach(function(transform) {
-			let outFile = path.parse(transform.dest).base;
+			let dest = path.join(buildPath, transform.dest);
+			let outFile = path.parse(dest).base;
 
 			let stream = gulp.src([
 					path.join(module.path, transform.source),
@@ -147,7 +151,7 @@ gulp.task("build:server", function() {
 				.pipe(gulpTypescript(config.server))
 				.pipe(gulpInsert.prepend("\"use strict\"; "))
 				.pipe(gulpif(config.sourcemaps, sourcemaps.write("./")))
-				.pipe(gulp.dest(transform.dest));
+				.pipe(gulp.dest(dest));
 
 			merged.add(stream);
 		});
@@ -171,8 +175,11 @@ gulp.task("build:client", function() {
 			return;
 		}
 
+		let buildPath = config.isProduction ? module.productionBuildPath : module.buildPath;
+
 		module.transforms.client.forEach(function(transform) {
-			let ppath = path.parse(transform.dest);
+			let dest = path.join(buildPath, transform.dest);
+			let ppath = path.parse(dest);
 			let outDir = ppath.dir;
 			let outFile = ppath.base;
 
@@ -240,8 +247,11 @@ gulp.task("build:styles", function() {
 			return;
 		}
 
+		let buildPath = config.isProduction ? module.productionBuildPath : module.buildPath;
+
 		module.transforms.styles.forEach(function(transform) {
-			let ppath = path.parse(transform.dest);
+			let dest = path.join(buildPath, transform.dest);
+			let ppath = path.parse(dest);
 
 			let stream = sass(path.join(module.path, transform.source), config.styles)
 				.pipe(plumber(plumberopts))
@@ -275,9 +285,12 @@ gulp.task("build:static", function() {
 			return;
 		}
 
+		let buildPath = config.isProduction ? module.productionBuildPath : module.buildPath;
+
 		module.transforms.static.forEach(function(transform) {
+			let dest = path.join(buildPath, transform.dest);
 			let stream = gulp.src(transform.source)
-				.pipe(gulp.dest(transform.dest));
+				.pipe(gulp.dest(dest));
 
 			merged.add(stream);
 		});
@@ -303,8 +316,6 @@ gulp.task("_build", function() {
 
 gulp.task("watch", function() {
 	livereload.listen();
-
-	gulp.watch("build.conf.js", ["config"]);
 
 	config.modules.forEach(function(module) {
 		if (module.transforms.static) {
@@ -338,18 +349,6 @@ gulp.task("watch", function() {
 
 gulp.task("production", ["config"], function() {
 	_.assign(config, configPresets.production);
-
-	_.forEach(config.modules, (module) => {
-		let prod = module.productionBuildPath;
-
-		if (prod) {
-			_.forEach(module.transforms, (types) => {
-				_.forEach(types, (transform) => {
-					transform.dest = path.join(prod, transform.dest);
-				});
-			});
-		}
-	});
 
 	return gulp.start(["_build"]);
 });

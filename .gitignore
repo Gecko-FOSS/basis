@@ -1,3 +1,7 @@
 node_modules/*
 .sass-cache/
-build/
+debug/
+release/
+
+# Modules
+!node_modules/@*

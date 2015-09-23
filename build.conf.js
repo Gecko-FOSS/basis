@@ -2,9 +2,10 @@ var config = {
 	preset: "development",
 	modules: [
 		{
-			name: "test",
+			name: "core",
 			path: __dirname,
-			productionBuildPath: "production",
+			buildPath: "debug",
+			productionBuildPath: "release",
 			sass: {
 				loadPath: []
 			},
@@ -17,26 +18,26 @@ var config = {
 			transforms: {
 				server: [
 					{
-						source: "src/server/*",
-						dest: "build"
+						source: "node_modules/@server/*",
+						dest: ""
 					}
 				],
 				client: [
 					{
-						source: "src/client/main.ts",
-						dest: "build/static/bundle.js"
+						source: "node_modules/@client/main.ts",
+						dest: "static/bundle.js"
 					}
 				],
 				styles: [
 					{
 						source: "src/styles/main.scss",
-						dest: "build/static/bundle.css"
+						dest: "static/bundle.css"
 					}
 				],
 				static: [
 					{
 						source: "src/static/**/*",
-						dest: "build/static"
+						dest: "static"
 					}
 				]
 			}
