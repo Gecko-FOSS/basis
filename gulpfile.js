@@ -42,6 +42,7 @@ let livereload = require("gulp-livereload");
 let watch = require("gulp-watch");
 let sourcemaps = require("gulp-sourcemaps");
 let rename = require("gulp-rename");
+let gulpInsert = require("gulp-insert");
 
 // Scripts
 let browserify = require("browserify");
@@ -144,6 +145,7 @@ gulp.task("build:server", function() {
 				.pipe(gulpif(config.sourcemaps, plumber(plumberopts)))
 				.pipe(sourcemaps.init())
 				.pipe(gulpTypescript(config.server))
+				.pipe(gulpInsert.prepend("\"use strict\"; "))
 				.pipe(gulpif(config.sourcemaps, sourcemaps.write("./")))
 				.pipe(gulp.dest(transform.dest));
 
@@ -176,6 +178,7 @@ gulp.task("build:client", function() {
 
 			let args = watchify.args;
 			args.extensions = [".ts"];
+			args.noParse = ["jquery"];
 			args.entries = [
 				path.join(module.path, transform.source),
 				__dirname + "/typings/tsd.d.ts"
@@ -204,6 +207,7 @@ gulp.task("build:client", function() {
 					.pipe(gulpif(config.sourcemaps, sourcemaps.init({loadMaps: true})))
 						.pipe(gulpif(config.minify, uglify()))
 						.pipe(rename(ppath.base))
+						.pipe(gulpInsert.prepend("\"use strict\"; "))
 					.pipe(gulpif(config.sourcemaps, sourcemaps.write("./")))
 					.pipe(gulp.dest(outDir))
 					.pipe(notify({
