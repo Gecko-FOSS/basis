@@ -1,6 +1,6 @@
 {
   "name": "basis",
-  "version": "1.0.0-dev",
+  "version": "1.0.0",
   "description": "A basis for building most anything!",
   "dependencies": {},
   "devDependencies": {
@@ -31,14 +31,13 @@
     "watchify": "^3.4.0"
   },
   "scripts": {
-    "start": "cd build && node main.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LPGhatguy/basis.git"
   },
   "author": "Lucien Greathouse <me@lpghatguy.com>",
-  "license": "MIT",
+  "license": "zlib/libpng",
   "bugs": {
     "url": "https://github.com/LPGhatguy/basis/issues"
   },
