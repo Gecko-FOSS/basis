@@ -1,5 +1,5 @@
 /*
-This is our Gulpfile.
+This is the Gulpfile.
 
 Current functionality pipelines:
 - TypeScript -> JS (Server)
@@ -95,7 +95,7 @@ gulp.task("config", function() {
 		},
 		server: {
 			module: "commonjs",
-			target: "ES5",
+			target: "ES6",
 			moduleResolution: "classic",
 			typescript: typescript
 		},
