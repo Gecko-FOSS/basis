@@ -95,7 +95,7 @@ gulp.task("config", function() {
 		},
 		server: {
 			module: "commonjs",
-			target: "ES6",
+			target: "ES5",
 			moduleResolution: "classic",
 			typescript: typescript
 		},
