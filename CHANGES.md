@@ -1,5 +1,8 @@
 # Basis Changes
 
+## 1.1.1
+- Update dependencies
+
 ## 1.1.0
 - Cleaned up typings folder
 - Updated dependencies
