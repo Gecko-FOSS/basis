@@ -358,7 +358,7 @@ gulp.task("_build", function() {
 gulp.task("watch", function() {
 	livereload.listen();
 
-	config.modules.forEach(function(module) {
+	getModules().forEach(function(module) {
 		if (module.transforms.static) {
 			module.transforms.static.forEach(function(transform) {
 				let ppath = path.parse(transform.source);
