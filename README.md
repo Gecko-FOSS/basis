@@ -15,7 +15,7 @@ Run `gulp` to develop in a debug build. Run `gulp build` to do a one-off debug b
 ### Input
 Use `src/static` for static files (images, HTML) and `src/styles` for Sass styles. Check `node_modules/@common`, `@server`, and `@client` for those specific pieces of functionality.
 
-### Input
+### Output
 Build outputs are isolated from source files completely; by default, development builds are in `./debug` and production builds are in `./release`.
 
 ### Arguments
