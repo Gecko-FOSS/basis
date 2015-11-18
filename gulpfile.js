@@ -20,6 +20,9 @@ let singleBuild = true;
 let userConfig;
 let config;
 
+let useModuleWhitelist = false;
+let whitelist = {};
+
 let plumberopts = {
 	errorHandler: function(err) {
 		notify.onError("Error: <%= error.message %>")(err);
@@ -63,6 +66,41 @@ function ensureModule(module) {
 	module.transforms = module.transforms || {};
 
 	return module;
+}
+
+function processArguments(args) {
+	let mode;
+
+	for (let arg of args) {
+		if (arg.startsWith("--")) {
+			mode = arg.slice(2)
+			continue;
+		}
+
+		switch(mode) {
+			case "modules":
+				useModuleWhitelist = true;
+				whitelist[arg] = true;
+		}
+	}
+}
+
+function getModules() {
+	let modules = [];
+
+	for (let module of config.modules) {
+		let doAdd = !useModuleWhitelist;
+
+		if (useModuleWhitelist) {
+			doAdd = whitelist[module.name];
+		}
+
+		if (doAdd) {
+			modules.push(module);
+		}
+	}
+
+	return modules;
 }
 
 let configPresets = {
@@ -131,7 +169,7 @@ gulp.task("config", function() {
 gulp.task("build:server", function() {
 	let merged = merge();
 
-	config.modules.forEach(function(module) {
+	getModules().forEach(function(module) {
 		if (!module.transforms.server) {
 			return;
 		}
@@ -170,7 +208,7 @@ gulp.task("build:server", function() {
 gulp.task("build:client", function() {
 	let merged = merge();
 
-	config.modules.forEach(function(module) {
+	getModules().forEach(function(module) {
 		if (!module.transforms.client) {
 			return;
 		}
@@ -242,7 +280,7 @@ gulp.task("build:client", function() {
 gulp.task("build:styles", function() {
 	let merged = merge();
 
-	config.modules.forEach(function(module) {
+	getModules().forEach(function(module) {
 		if (!module.transforms.styles) {
 			return;
 		}
@@ -280,7 +318,7 @@ gulp.task("build:styles", function() {
 gulp.task("build:static", function() {
 	let merged = merge();
 
-	config.modules.forEach(function(module) {
+	getModules().forEach(function(module) {
 		if (!module.transforms.static) {
 			return;
 		}
@@ -307,6 +345,9 @@ gulp.task("build:static", function() {
 });
 
 gulp.task("build", ["config"], function() {
+	let args = process.argv.slice(3);
+	processArguments(args);
+
 	return gulp.start(["_build"]);
 });
 
@@ -350,11 +391,17 @@ gulp.task("watch", function() {
 gulp.task("production", ["config"], function() {
 	_.assign(config, configPresets.production);
 
+	let args = process.argv.slice(3);
+	processArguments(args);
+
 	return gulp.start(["_build"]);
 });
 
 gulp.task("default", ["config"], function() {
 	singleBuild = false;
+
+	let args = process.argv.slice(2);
+	processArguments(args);
 
 	return gulp.start(["_build", "watch"]);
 });

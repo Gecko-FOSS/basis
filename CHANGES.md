@@ -1,7 +1,10 @@
 # Basis Changes
 
+## 1.2.0
+- Added extra optional arguments to `gulp build` to build only specific modules
+
 ## 1.1.1
-- Update dependencies
+- Updated dependencies
 
 ## 1.1.0
 - Cleaned up typings folder
