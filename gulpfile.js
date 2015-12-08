@@ -377,12 +377,12 @@ gulp.task("watch", function() {
 			});
 		}
 
-		if (module.transforms.serverScripts) {
-			module.transforms.serverScripts.forEach(function(transform) {
+		if (module.transforms.server) {
+			module.transforms.server.forEach(function(transform) {
 				let ppath = path.parse(transform.source);
 				let wpath = path.join(module.path, ppath.dir, "**/*.ts");
 
-				gulp.watch(wpath, ["build:serverScripts"]);
+				gulp.watch(wpath, ["build:server"]);
 			});
 		}
 	});
