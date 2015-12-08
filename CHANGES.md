@@ -1,5 +1,9 @@
 # Basis Changes
 
+## 1.2.1
+- Fixed version number in `package.json`
+- Fixed server script build references
+
 ## 1.2.0
 - Added extra optional arguments to `gulp build` to build only specific modules
 
