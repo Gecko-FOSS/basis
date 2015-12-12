@@ -9,28 +9,12 @@ Current functionality pipelines:
 
 "use strict";
 
+console.log("Loading dependencies...");
+
 // Core dependencies
 let path = require("path");
 let gulp = require("gulp");
 let fs = require("fs");
-let _ = require("lodash");
-
-// Runtime variables
-let singleBuild = true;
-let userConfig;
-let config;
-
-let useModuleWhitelist = false;
-let whitelist = {};
-
-let plumberopts = {
-	errorHandler: function(err) {
-		notify.onError("Error: <%= error.message %>")(err);
-		this.emit("end");
-	}
-};
-
-console.log("Loading dependencies...");
 
 // Utility dependencies
 let gutil = require("gulp-util");
@@ -60,60 +44,51 @@ let sass = require("gulp-ruby-sass");
 let minifyCSS = require("gulp-minify-css");
 let autoprefixer = require("gulp-autoprefixer");
 
-function ensureModule(module) {
-	module.name = module.name || "unnamed module";
-	module.path = module.path || __dirname;
-	module.transforms = module.transforms || {};
+// Runtime variables
+let config;
 
-	return module;
-}
-
-function processArguments(args) {
-	let mode;
-
-	for (let arg of args) {
-		if (arg.startsWith("--")) {
-			mode = arg.slice(2)
-			continue;
-		}
-
-		switch(mode) {
-			case "modules":
-				useModuleWhitelist = true;
-				whitelist[arg] = true;
-		}
+let plumberopts = {
+	errorHandler: function(err) {
+		notify.onError("Error: <%= error.message %>")(err);
+		this.emit("end");
 	}
-}
+};
 
-function getModules() {
-	let modules = [];
+// minify?
+// sourcemaps?
 
-	for (let module of config.modules) {
-		let doAdd = !useModuleWhitelist;
-
-		if (useModuleWhitelist) {
-			doAdd = whitelist[module.name];
-		}
-
-		if (doAdd) {
-			modules.push(module);
-		}
+function assignArray(target: any[], source: any[]) {
+	for (let value of source) {
+		target.push(value);
 	}
 
-	return modules;
+	return target;
 }
 
-let configPresets = {
-	production: {
-		minify: true,
-		sourcemaps: false,
-		isProduction: true
-	},
+function deepAssign(target, source) {
+	for (let key in source) {
+		if (source.hasOwnProperty(key)) {
+			let value = source[key];
 
-	development: {
-		minify: false,
-		sourcemaps: true
+			if (Array.isArray(value)) {
+				if (Array.isArray(target[key])) {
+					assignArray(target[key], value);
+				} else {
+					target[key] = value;
+				}
+			} else if (typeof value === "object") {
+				if (typeof target[key] === "object") {
+					deepAssign(target[key], value);
+				} else {
+					target[key] = value;
+				}
+			} else {
+				target[key] = value;
+			}
+		}
 	}
+
+	return target;
 }
 
 // Load configuration from our config file
@@ -123,7 +98,8 @@ gulp.task("config", function() {
 	delete require.cache[path.resolve("./build.conf.js")];
 
 	config = {
-		modules: [],
+		debugPath: "debug",
+		releasePath: "release",
 		client: {
 			module: "commonjs",
 			sortOutput: true,
@@ -139,30 +115,17 @@ gulp.task("config", function() {
 		},
 		styles: {
 			require: "sass-globbing"
-		}
+		},
+		transforms: []
 	};
 
 	try {
-		userConfig = require("./build.conf.js");
+		let userConfig = require("./build.conf.js");
+
+		deepAssign(config, userConfig);
 	} catch(e) {
-		userConfig = {
-			preset: "development"
-		};
+		throw "NOPE";
 	}
-
-	if (userConfig.preset != undefined) {
-		if (configPresets[userConfig.preset] != undefined) {
-			_.defaultsDeep(userConfig, configPresets[userConfig.preset]);
-		}
-	}
-
-	_.assign(config, userConfig);
-
-	if (config.styles.sourcemap === undefined && config.sourcemaps !== undefined) {
-		config.styles.sourcemap = config.sourcemaps;
-	}
-
-	config.modules = _.map(config.modules, ensureModule);
 });
 
 // Build server scripts

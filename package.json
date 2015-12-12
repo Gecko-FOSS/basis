@@ -1,6 +1,6 @@
 {
   "name": "basis",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "A basis for building most anything!",
   "dependencies": {},
   "devDependencies": {
@@ -21,16 +21,16 @@
     "gulp-uglify": "^1.4.1",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.3.5",
-    "lodash": "^3.10.1",
     "merge-stream": "^1.0.0",
     "tsify": "^0.12.1",
-    "typescript": "~1.6.2",
+    "typescript": "~1.7.3",
     "uglify": "^0.1.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.4.0"
   },
-  "scripts": {},
+  "scripts": {
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LPGhatguy/basis.git"
