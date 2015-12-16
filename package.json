@@ -27,7 +27,9 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.4.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "cd debug && nodemon main.js --ignore static/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LPGhatguy/basis.git"
