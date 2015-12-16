@@ -405,8 +405,18 @@ declare module "buffer" {
 }
 
 declare module "querystring" {
-    export function stringify(obj: any, sep?: string, eq?: string): string;
-    export function parse(str: string, sep?: string, eq?: string, options?: { maxKeys?: number; }): any;
+    export interface StringifyOptions {
+        encodeURIComponent?: Function;
+    }
+
+    export interface ParseOptions {
+        maxKeys?: number;
+        decodeURIComponent?: Function;
+    }
+
+    export function stringify<T>(obj: T, sep?: string, eq?: string, options?: StringifyOptions): string;
+    export function parse(str: string, sep?: string, eq?: string, options?: ParseOptions): any;
+    export function parse<T extends {}>(str: string, sep?: string, eq?: string, options?: ParseOptions): T;
     export function escape(str: string): string;
     export function unescape(str: string): string;
 }
@@ -430,7 +440,7 @@ declare module "http" {
     import * as events from "events";
     import * as net from "net";
     import * as stream from "stream";
-    
+
     export interface RequestOptions {
         protocol?: string;
         host?: string;
@@ -698,7 +708,29 @@ declare module "zlib" {
 }
 
 declare module "os" {
+    export interface CpuInfo {
+        model: string;
+        speed: number;
+        times: {
+            user: number;
+            nice: number;
+            sys: number;
+            idle: number;
+            irq: number;
+        }
+    }
+
+    export interface NetworkInterfaceInfo {
+        address: string;
+        netmask: string;
+        family: string;
+        mac: string;
+        internal: boolean;
+    }
+
     export function tmpdir(): string;
+    export function homedir(): string;
+    export function endianness(): string;
     export function hostname(): string;
     export function type(): string;
     export function platform(): string;
@@ -708,8 +740,8 @@ declare module "os" {
     export function loadavg(): number[];
     export function totalmem(): number;
     export function freemem(): number;
-    export function cpus(): { model: string; speed: number; times: { user: number; nice: number; sys: number; idle: number; irq: number; }; }[];
-    export function networkInterfaces(): any;
+    export function cpus(): CpuInfo[];
+    export function networkInterfaces(): {[index: string]: NetworkInterfaceInfo[]};
     export var EOL: string;
 }
 
@@ -1675,7 +1707,7 @@ declare module "crypto" {
 declare module "stream" {
     import * as events from "events";
 
-    export interface Stream extends events.EventEmitter {
+    export class Stream extends events.EventEmitter {
         pipe<T extends NodeJS.WritableStream>(destination: T, options?: { end?: boolean; }): T;
     }
 
@@ -1808,6 +1840,8 @@ declare module "assert" {
         export function notDeepEqual(acutal: any, expected: any, message?: string): void;
         export function strictEqual(actual: any, expected: any, message?: string): void;
         export function notStrictEqual(actual: any, expected: any, message?: string): void;
+        export function deepStrictEqual(actual: any, expected: any, message?: string): void;
+        export function notDeepStrictEqual(actual: any, expected: any, message?: string): void;
         export var throws: {
             (block: Function, message?: string): void;
             (block: Function, error: Function, message?: string): void;

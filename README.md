@@ -2,8 +2,8 @@
 A base build system for things of all sorts. See [CHANGES](CHANGES.md) for a complete change log.
 
 ## Requirements
-- `node >=4.0`
-- `typescript ~1.6`
+- `node >=5.0`
+- `typescript ~1.7`
 - Ruby Sass 3.4+ (`gem install sass`)
 - Sass Globbing 1.1+ (`gem install sass-globbing`)
 

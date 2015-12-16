@@ -1,33 +1,65 @@
-var config = {
+"use strict";
+
+try {
+	var typescript = require("typescript");
+} catch(e) {
+	console.log("Couldn't load 'typescript'; try running 'npm install'");
+}
+
+let server = {
+	module: "commonjs",
+	target: "ES5",
+	moduleResolution: "node",
+	typescript: typescript
+};
+
+let browser = {
+	module: "commonjs",
+	sortOutput: true,
+	target: "ES5",
+	moduleResolution: "node",
+	typescript: typescript
+};
+
+let styles = {
+	require: "sass-globbing"
+};
+
+let config = {
+	once: false,
+	debug: true,
+
 	debugPath: "debug",
 	releasePath: "release",
+
 	transforms: [
 		{
+			config: server,
 			default: true,
-			name: "server",
 			type: "server",
-			source: "node_modules/@server/**/*",
+			extraEntries: ["typings/tsd.d.ts"],
+			source: "node_modules/@server/**/*.*",
 			dest: ""
 		},
 		{
+			config: browser,
 			default: true,
-			name: "client",
-			type: "client",
+			type: "browser",
+			extraEntries: ["typings/tsd.d.ts"],
 			source: "node_modules/@client/main.ts",
 			dest: "static/bundle.js"
 		},
 		{
+			config: styles,
 			default: true,
-			name: "styles",
 			type: "styles",
 			source: "src/styles/main.scss",
 			dest: "static/bundle.css"
 		},
 		{
 			default: true,
-			name: "static",
 			type: "static",
-			source: "src/static/**/*",
+			source: "src/static/**/*.*",
 			dest: "static"
 		}
 	]
