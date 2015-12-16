@@ -6,6 +6,7 @@
 	},
 	"files": [
 		"typings/tsd.d.ts",
+		"typings/fetch.d.ts",
 		"node_modules/@common/core.ts",
 		"node_modules/@client/main.ts",
 		"node_modules/@server/main.ts"

@@ -26,6 +26,7 @@ let styles = {
 };
 
 let config = {
+	proxy: "localhost:8000",
 	once: false,
 	debug: true,
 
@@ -45,7 +46,7 @@ let config = {
 			config: browser,
 			default: true,
 			type: "browser",
-			extraEntries: ["typings/tsd.d.ts"],
+			extraEntries: ["typings/tsd.d.ts", "typings/fetch.d.ts"],
 			source: "node_modules/@client/main.ts",
 			dest: "static/bundle.js"
 		},
