@@ -25,3 +25,6 @@ Use `src/static` for static files (images, HTML) and `src/styles` for Sass style
 
 ### Output
 By default, development builds are in `./debug` and production builds are in `./release`.
+
+## License
+Basis is licensed under the MIT license. See [LICENSE](LICENSE.md) for more detials.
