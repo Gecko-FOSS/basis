@@ -4,8 +4,9 @@
 - Rewrite from the ground-up
 - Build modules now in `node_modules/@build`
 - Switched from LiveReload to BrowserSync
-- Now requires Node 5.0
+- Now requires Node ^5.0
 - More flexible configuration format
+- User configuration support
 
 ## 1.2.1
 - Fixed version number in `package.json`

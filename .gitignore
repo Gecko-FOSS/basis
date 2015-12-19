@@ -1,7 +1,9 @@
-node_modules/*
+# Build System
 .sass-cache/
 debug/
 release/
+build.user.conf.js
 
 # Modules
+node_modules/*
 !node_modules/@*
