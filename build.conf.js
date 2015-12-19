@@ -3,7 +3,8 @@
 try {
 	var typescript = require("typescript");
 } catch(e) {
-	console.log("Couldn't load 'typescript'; try running 'npm install'");
+	console.error("Couldn't load some dependencies; try running 'npm install'");
+	process.exit(1);
 }
 
 let server = {
@@ -23,7 +24,6 @@ let browser = {
 
 let styles = {
 	sass: {
-		require: "sass-globbing"
 	},
 	autoprefixer: ["last 3 versions", "Firefox ESR", "not IE < 11"]
 };
@@ -52,7 +52,7 @@ let config = {
 			default: true,
 			type: "server",
 			extraEntries: ["typings/tsd.d.ts"],
-			source: "node_modules/@server/**/*.*",
+			source: "node_modules/@server/**/*.ts",
 			dest: ""
 		},
 		{
@@ -65,7 +65,7 @@ let config = {
 		{
 			config: styles,
 			type: "styles",
-			source: "src/styles/main.scss",
+			source: "node_modules/@client/main.scss",
 			dest: "static/bundle.css"
 		},
 		{
