@@ -31,9 +31,9 @@ The following flags can be set:
 The following parameters can be set:
 - `--out=PATH`: output path for code
 - `--preset=PRESET`: preset to load
-- `--only=module[,module2,...]`: only build these modules
-- `--except=module[,module2,...]`: don't build these modules
-- `--gray=module[,module2,...]`: build these modules even if disabled
+- `--only=MODULE[,MODULE2,...]`: only build these modules
+- `--except=MODULE[,MODULE2,...]`: don't build these modules
+- `--gray=MODULE[,MODULE2,...]`: build these modules even if disabled
 
 ### Examples
 To build a single release build, use
