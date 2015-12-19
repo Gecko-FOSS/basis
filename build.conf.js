@@ -44,7 +44,6 @@ let config = {
 		},
 		{
 			config: browser,
-			default: true,
 			type: "browser",
 			extraEntries: ["typings/tsd.d.ts", "typings/fetch.d.ts"],
 			source: "node_modules/@client/main.ts",
@@ -52,13 +51,11 @@ let config = {
 		},
 		{
 			config: styles,
-			default: true,
 			type: "styles",
 			source: "src/styles/main.scss",
 			dest: "static/bundle.css"
 		},
 		{
-			default: true,
 			type: "static",
 			source: "src/static/**/*.*",
 			dest: "static"
