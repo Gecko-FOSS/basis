@@ -28,10 +28,21 @@ let styles = {
 let config = {
 	proxy: "localhost:8000",
 	once: false,
-	debug: true,
 
-	debugPath: "debug",
-	releasePath: "release",
+	preset: "debug",
+	presets: {
+		debug: {
+			sourcemaps: true,
+			minify: false,
+			out: "debug"
+		},
+		release: {
+			once: true,
+			sourcemaps: false,
+			minify: true,
+			out: "release"
+		}
+	},
 
 	transforms: [
 		{

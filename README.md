@@ -6,7 +6,7 @@ Basis has the following goals:
 - Intuitive organization
 - Isolated builds
 
-See [CHANGES](CHANGES.md) for a complete change log.
+See [CHANGES](CHANGES.md) for a complete changelog.
 
 ## Requirements
 - `node >=5.0`
@@ -16,9 +16,7 @@ By default, the system also requires:
 - Sass Globbing 1.1+ (`gem install sass-globbing`)
 
 ## Usage
-The build system sets up Browsersync during development. Running `npm start` will set up `nodemon` to reload the server on code changes.
-
-The build system can be run in its default configuration with `gulp`. This includes sourcemaps, no minification, live reloading, and debug output.
+The build system can be run in its default configuration with `gulp`. This loads the default preset defined in the configuration.
 
 Flags can be set with the following syntax:
 - `--flag`: enable
@@ -27,15 +25,28 @@ Flags can be set with the following syntax:
 
 The following flags can be set:
 - `once`: build once, then exit
-- `production`: build with production preset
-	- implies `sourcemaps`, `minify`, and production build path
 - `sourcemaps`: build sourcemaps for client code
 - `minify`: minify client code
 
-The following extra parameters can be set:
-- `only module[,module2,...]`: only build these modules
-- `except module[,module2,...]`: don't build these modules
-- `gray module[,module2,...]`: build these modules even if disabled
+The following parameters can be set:
+- `--out=PATH`: output path for code
+- `--preset=PRESET`: preset to load
+- `--only=module[,module2,...]`: only build these modules
+- `--except=module[,module2,...]`: don't build these modules
+- `--gray=module[,module2,...]`: build these modules even if disabled
+
+### Examples
+To build a single release build, use
+```
+gulp --once --preset=release
+```
+
+To build just stylesheets once in debug mode without minifying them:
+```
+gulp --once --only stylesheets
+```
+
+
 
 ## Files
 The default transforms are:
@@ -45,7 +56,7 @@ The default transforms are:
 - server: `node_modules/@server` -> `main.js`
 - client: `node_modules/@client/main.ts` -> `static/bundle.js`
 
-In debug mode (the default), these folders are contained in `debug`. In production mode, they can be found in `release`.
+In debug mode (the default), these folders are contained in `debug`. In release mode, they can be found in `release`.
 
 ## License
 Basis is licensed under the MIT license. See [LICENSE](LICENSE.md) for more detials.
