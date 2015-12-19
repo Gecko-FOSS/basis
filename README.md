@@ -54,7 +54,7 @@ gulp --sourcemaps=no --out=derp
 ## Files
 The default transforms are:
 
-- styles: `src/styles` -> `static/bundle.css`
+- styles: `node_modules/@client/main.scss` -> `static/bundle.css`
 - static: `src/static` -> `static`
 - server: `node_modules/@server` -> `main.js`
 - client: `node_modules/@client/main.ts` -> `static/bundle.js`
