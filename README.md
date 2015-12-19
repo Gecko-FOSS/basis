@@ -43,10 +43,8 @@ gulp --once --preset=release
 
 To build just stylesheets once in debug mode without minifying them:
 ```
-gulp --once --only stylesheets
+gulp --once --only=stylesheets
 ```
-
-
 
 ## Files
 The default transforms are:
