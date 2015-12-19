@@ -22,12 +22,14 @@ let browser = {
 };
 
 let styles = {
-	require: "sass-globbing"
+	sass: {
+		require: "sass-globbing"
+	},
+	autoprefixer: ["last 3 versions", "Firefox ESR", "not IE < 11"]
 };
 
 let config = {
 	proxy: "localhost:8000",
-	once: false,
 
 	preset: "debug",
 	presets: {
