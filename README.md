@@ -36,7 +36,7 @@ The following parameters can be set:
 - `--gray=MODULE[,MODULE2,...]`: build these modules even if disabled
 
 ### Examples
-To build a single release build, use
+To build a single release build:
 ```
 gulp --once --preset=release
 ```
@@ -44,6 +44,11 @@ gulp --once --preset=release
 To build just stylesheets once in debug mode without minifying them:
 ```
 gulp --once --only=stylesheets
+```
+
+To build a debug build without sourcemaps to `./derp`, try
+```
+gulp --sourcemaps=no --out=derp
 ```
 
 ## Files
