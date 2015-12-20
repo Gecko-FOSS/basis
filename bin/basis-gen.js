@@ -46,12 +46,12 @@ let questions = [
 // Patterns for files we shouldn't copy
 let blacklist = [
 	/^node_modules[\\\/][^@]/,
-	/^.git/,
-	/^.sass-cache/,
-	/^(bin|.template)/,
-	/^(debug|release)/,
-	/^package.json/,
-	/^(CHANGES.md|README.md)/,
+	/^.git$/,
+	/^.sass-cache$/,
+	/^(bin|.template)$/,
+	/^(debug|release)$/,
+	/^package.json$/,
+	/^(CHANGES.md|README.md)$/,
 	/^[^\/]+\.sublime-/
 ];
 
