@@ -3,6 +3,7 @@
 debug/
 release/
 build.user.conf.js
+*.log
 
 # Modules
 node_modules/*
