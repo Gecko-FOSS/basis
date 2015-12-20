@@ -6,7 +6,7 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "node/node.d.ts": {
-      "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
+      "commit": "40c60850ad6c8175a62d5ab48c4e016ea5b3dffe"
     },
     "mime/mime.d.ts": {
       "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
@@ -19,6 +19,9 @@
     },
     "core-js/core-js.d.ts": {
       "commit": "11322524f8db9cdb921427cad84cd22fe2d4f965"
+    },
+    "ws/ws.d.ts": {
+      "commit": "40c60850ad6c8175a62d5ab48c4e016ea5b3dffe"
     }
   }
 }
