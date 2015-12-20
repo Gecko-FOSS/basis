@@ -1,5 +1,10 @@
 # Basis
-A template project for full-stack TypeScript projects.
+```sh
+npm install basis -g
+basis-gen [project-name]
+```
+
+A template project and generator for full-stack TypeScript projects.
 
 Basis has the following goals:
 - Flexible configuration
@@ -14,6 +19,9 @@ See [CHANGES](CHANGES.md) for a complete changelog.
 
 By default, the system also requires:
 - Sass Globbing 1.1+ (`gem install sass-globbing`)
+
+## Generator
+Run `basis-gen [project-name]` to generate a new Basis-enabled project. A wizard will guide you through your setup.
 
 ## Usage
 The build system can be run in its default configuration with `gulp`. This loads the default preset defined in the configuration.

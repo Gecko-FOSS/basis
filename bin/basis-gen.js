@@ -126,7 +126,7 @@ prompt(questions)
 			fs.writeFileSync(path.join(out, `${name}.sublime-project`), body);
 		}
 
-		console.log("Done!");
+		console.log("Scaffolded new project at ", out);
 	}).catch(e => {
 		console.error(e);
 	})
