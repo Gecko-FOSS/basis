@@ -1,10 +1,14 @@
 # Build System
 .sass-cache/
+*.log
+
+# User
+build.user.conf.js
+
+# Outputs
 debug/
 release/
-build.user.conf.js
-*.log
-*.zip
+production/
 
 # Modules
 node_modules/*

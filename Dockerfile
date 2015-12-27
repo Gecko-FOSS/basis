@@ -6,7 +6,7 @@ RUN apt-get install -y curl python
 RUN curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 RUN apt-get install -y nodejs
 
-ADD . ./
+COPY . ./
 
 RUN npm install --production
 

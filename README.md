@@ -45,9 +45,9 @@ The following parameters can be set:
 - `--gray=MODULE[,MODULE2,...]`: build these modules even if disabled
 
 ### Examples
-To build a single release build:
+To build a single production build:
 ```
-gulp --once --preset=release
+gulp --once --preset=production
 ```
 
 To build just stylesheets once in debug mode without minifying them:
@@ -68,7 +68,7 @@ The default transforms are:
 - server: `node_modules/@server` -> `main.js`
 - client: `node_modules/@client/main.ts` -> `static/bundle.js`
 
-In debug mode (the default), these folders are contained in `debug`. In release mode, they can be found in `release`.
+In debug mode (the default), these folders are contained in `debug`. In production mode, they can be found in `production`.
 
 ## License
 Basis is licensed under the MIT license. See [LICENSE](LICENSE.md) for more detials.

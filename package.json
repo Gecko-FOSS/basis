@@ -36,7 +36,8 @@
     "basis-gen": "bin/basis-gen.js"
   },
   "scripts": {
-    "start": "cd debug && nodemon main.js --ignore static/"
+    "start": "cd debug && nodemon main.js --ignore static/",
+    "production": "gulp --preset=production && cp Dockerfile production/Dockerfile && cp package.json production/package.json"
   },
   "repository": {
     "type": "git",

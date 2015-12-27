@@ -43,11 +43,11 @@ let config = {
 			minify: false,
 			out: "debug"
 		},
-		release: {
+		production: {
 			once: true,
 			sourcemaps: false,
 			minify: true,
-			out: "release"
+			out: "production"
 		}
 	},
 
