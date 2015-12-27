@@ -10,4 +10,4 @@ ADD . ./
 
 RUN npm install --production
 
-CMD node main.js
+CMD cd production && node main.js
