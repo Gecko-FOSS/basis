@@ -16,10 +16,6 @@ See [CHANGES](CHANGES.md) for a complete changelog.
 
 ## Requirements
 - `node >=5.0`
-- Ruby Sass 3.4+ (`gem install sass`)
-
-By default, the system also requires:
-- Sass Globbing 1.1+ (`gem install sass-globbing`)
 
 ## Generator
 Run `basis-gen [project-name]` to generate a new Basis-enabled project. A wizard will guide you through your setup.
