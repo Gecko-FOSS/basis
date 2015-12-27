@@ -4,6 +4,7 @@ debug/
 release/
 build.user.conf.js
 *.log
+*.zip
 
 # Modules
 node_modules/*

@@ -29,7 +29,12 @@ let styles = {
 };
 
 let config = {
-	proxy: "localhost:8000",
+	browserSync: {
+		proxy: {
+			target: "localhost:8000",
+			ws: true
+		}
+	},
 
 	preset: "debug",
 	presets: {
