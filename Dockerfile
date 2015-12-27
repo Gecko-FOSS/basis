@@ -10,4 +10,6 @@ ADD . ./
 
 RUN npm install --production
 
-CMD cd production && node main.js
+# Intended to be run from the 'release' or 'production' directory
+
+CMD node main.js
