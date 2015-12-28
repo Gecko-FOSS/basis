@@ -1,5 +1,6 @@
 "use strict";
 
+// Load TypeScript from our dependencies
 try {
 	var typescript = require("typescript");
 } catch(e) {
@@ -7,6 +8,7 @@ try {
 	process.exit(1);
 }
 
+// TypeScript compiler options on the server
 let server = {
 	module: "commonjs",
 	target: "ES5",
@@ -14,6 +16,7 @@ let server = {
 	typescript: typescript
 };
 
+// TypeScript compiler options on the client
 let browser = {
 	module: "commonjs",
 	sortOutput: true,
@@ -22,6 +25,8 @@ let browser = {
 	typescript: typescript
 };
 
+// Style options
+// sass is passed straight to node-sass
 let styles = {
 	sass: {
 	},
@@ -29,6 +34,7 @@ let styles = {
 };
 
 let config = {
+	// Direct browserSync config
 	browserSync: {
 		proxy: {
 			target: "localhost:8000",
