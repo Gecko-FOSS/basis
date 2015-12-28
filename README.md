@@ -1,5 +1,7 @@
 # Basis Generator
 [![npm version](https://img.shields.io/npm/v/basis-gen.svg)](https://www.npmjs.com/package/basis-gen)
+![node version](https://img.shields.io/node/v/basis-gen.svg)
+![license](https://img.shields.io/github/license/LPGhatguy/basis.svg)
 
 ```sh
 npm install -g basis-gen

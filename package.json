@@ -1,6 +1,6 @@
 {
   "name": "basis-gen",
-  "version": "2.0.0-alpha2",
+  "version": "2.0.0-alpha3",
   "description": "A full-stack project template and generator",
   "dependencies": {
     "express": "^4.13.3",
@@ -34,6 +34,9 @@
   },
   "bin": {
     "basis-gen": "bin/basis-gen.js"
+  },
+  "engines": {
+    "node": ">=5.0"
   },
   "scripts": {
     "start": "cd debug && nodemon main.js --ignore static/"
