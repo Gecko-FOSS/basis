@@ -10,6 +10,13 @@ Basis has the following goals:
 - Flexible configuration
 - Intuitive organization
 - Isolated builds
+- Automated deployments
+
+These goals are accomplished with the following technologies:
+- TypeScript
+- Sass
+- Gulp
+- Docker
 
 See [CHANGES](CHANGES.md) for a complete changelog.
 
