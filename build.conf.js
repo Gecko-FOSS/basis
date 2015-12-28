@@ -75,8 +75,13 @@ let config = {
 		},
 		{
 			type: "static",
-			source: "src/static/**/*.*",
+			source: "node_modules/@static/**/*.*",
 			dest: "static"
+		},
+		{
+			type: "static",
+			source: ["package.json", "Dockerfile"],
+			dest: ""
 		}
 	]
 };
