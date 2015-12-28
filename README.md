@@ -1,7 +1,6 @@
 # Basis
 ```sh
-git clone https://github.com/LPGhatguy/basis.git
-npm install ./basis -g
+npm install basis-gen -g
 basis-gen [project-name]
 ```
 
