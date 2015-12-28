@@ -53,7 +53,15 @@ let config = {
 			once: true,
 			sourcemaps: false,
 			minify: true,
-			out: "production"
+			out: "production",
+			transforms: [
+				{
+					name: "Metadata",
+					type: "static",
+					source: ["package.json", "Dockerfile"],
+					dest: ""
+				}
+			]
 		}
 	},
 
@@ -83,11 +91,6 @@ let config = {
 			type: "static",
 			source: "node_modules/@static/**/*.*",
 			dest: "static"
-		},
-		{
-			type: "static",
-			source: ["package.json", "Dockerfile"],
-			dest: ""
 		}
 	]
 };

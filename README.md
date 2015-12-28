@@ -69,6 +69,8 @@ Presets set default values for these flags and parameters.
 | `sourcemaps` | no             |
 | `minify`     | yes            |
 
+The default production preset also adds an extra transform, copying `package.json` and `Dockerfile` to the build directory.
+
 ### Examples
 To build a production build:
 ```
