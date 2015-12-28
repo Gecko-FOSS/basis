@@ -107,7 +107,7 @@ prompt(questions)
 	}).then(() => {
 		// Let's handle our template files!
 
-		let files = ["package.json", "README.md"];
+		let files = ["README.md"];
 		let data = {
 			"package-name": name
 		};
@@ -116,6 +116,16 @@ prompt(questions)
 		for (let file of files) {
 			gFilter(file, data);
 		}
+
+		// Write new package.json
+		let packBody = fs.readFileSync(path.join(root, "package.json")).toString("utf8");
+		let pack = JSON.parse(packBody);
+		pack.name = name;
+		pack.version = "1.0.0";
+		pack.description = "Generated with basis-gen";
+		packBody = JSON.stringify(pack, null, 2);
+
+		fs.writeFileSync(path.join(out, "package.json"), packBody);
 
 		// If the user has a sublime-project file, let's copy it!
 		if (fs.lstatSync(path.join(root, "basis.sublime-project"))) {
