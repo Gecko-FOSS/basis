@@ -1,9 +1,10 @@
 {
   "name": "{{package-name}}",
   "version": "1.0.0",
-  "description": "Generated with Basis",
+  "description": "Generated with basis-gen",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "ws": "^0.8.1"
   },
   "devDependencies": {
     "browser-sync": "^2.10.1",
@@ -30,7 +31,8 @@
     "watchify": "^3.4.0"
   },
   "scripts": {
-    "start": "cd debug && nodemon main.js --ignore static/"
+    "start": "cd debug && nodemon main.js --ignore static/",
+    "production": "gulp --preset=production && cp Dockerfile production/Dockerfile && cp package.json production/package.json"
   },
   "license": "MIT"
 }
