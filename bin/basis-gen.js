@@ -21,19 +21,6 @@ let prompt = (questions) => {
 	});
 };
 
-// Filters a file from ./template to the output
-let gFilter = (file, data) => {
-	let body = fs.readFileSync(path.join(root, ".template", file)).toString("utf8");
-
-	for (let key in data) {
-		if (data.hasOwnProperty(key)) {
-			body = body.replace(new RegExp(`{{${key}}}`, "g"), data[key]);
-		}
-	}
-
-	fs.writeFileSync(path.join(out, file), body);
-};
-
 let questions = [
 	{
 		type: "input",
@@ -54,6 +41,11 @@ let blacklist = [
 	/^(CHANGES.md|README.md)$/,
 	/^[^\/]+\.sublime-/
 ];
+
+let README = (name) => `
+# ${name}
+This project was generated with [Basis](https://github.com/LPGhatguy/basis).
+`.trim();
 
 // Let's go!
 prompt(questions)
@@ -105,17 +97,8 @@ prompt(questions)
 			});
 		});
 	}).then(() => {
-		// Let's handle our template files!
-
-		let files = ["README.md"];
-		let data = {
-			"package-name": name
-		};
-
-		// Filter the files from ./template
-		for (let file of files) {
-			gFilter(file, data);
-		}
+		// Write a readme
+		fs.writeFileSync(path.join(out, "README.md"), README(name));
 
 		// Write new package.json
 		let packBody = fs.readFileSync(path.join(root, "package.json")).toString("utf8");
