@@ -18,9 +18,12 @@ Basis has the following goals:
 
 These goals are accomplished with the following technologies:
 - TypeScript
-- Sass
+- Browserify
+- Sass (libsass)
 - Gulp
 - Docker (production)
+
+Sass compiled via Basis has globbing and single-import enabled.
 
 See [CHANGES](CHANGES.md) for a complete changelog.
 
