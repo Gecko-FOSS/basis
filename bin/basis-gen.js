@@ -3,9 +3,14 @@
 
 const path = require("path");
 const fs = require("fs-extra");
-const inquirer = require("inquirer");
+const readline = require("readline");
 
 const root = path.normalize(path.join(__dirname, ".."));
+
+let rl = readline.createInterface({
+	output: process.stdout,
+	input: process.stdin
+});
 
 let out;
 let name;
@@ -15,20 +20,20 @@ if (process.argv[2]) {
 }
 
 // Promise wrapper for Inquirer.js
-let prompt = (questions) => {
+let prompt = (text, fallback) => {
 	return new Promise(resolve => {
-		inquirer.prompt(questions, answers => resolve(answers));
+		rl.question(text, answer => {
+			if (!answer) {
+				resolve(fallback);
+				return;
+			}
+
+			resolve(answer);
+		})
 	});
 };
 
-let questions = [
-	{
-		type: "input",
-		name: "projectName",
-		message: "Project name?",
-		default: name
-	}
-];
+let answers = {};
 
 // Patterns for files we shouldn't copy
 let blacklist = [
@@ -48,21 +53,18 @@ This project was generated with [Basis](https://github.com/LPGhatguy/basis).
 `.trim();
 
 // Let's go!
-prompt(questions)
-	.then(answers => {
-		return prompt([
-			{
-				type: "input",
-				name: "path",
-				message: "Project path?",
-				default: out || ("./" + answers.projectName)
-			}
-		]).then(answers2 => {
-			Object.assign(answers, answers2);
-			return answers;
-		})
+prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
+	.then(projectName => {
+		answers.projectName = projectName;
+		let existing = out || ("./" + projectName);
+
+		return prompt(`Project path? ${existing} `, existing);
 	})
-	.then(answers => {
+	.then(projectPath => {
+		answers.path = projectPath;
+		rl.close();
+	})
+	.then(() => {
 		out = answers.path || path;
 		name = answers.name || name;
 
