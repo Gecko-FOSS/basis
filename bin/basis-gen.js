@@ -40,10 +40,10 @@ let blacklist = [
 	/^node_modules[\\\/][^@]/,
 	/^.git$/,
 	/^.sass-cache$/,
-	/^(bin|.template)$/,
-	/^(debug|release)$/,
+	/^bin$/,
+	/^(debug|production)$/,
 	/^package.json$/,
-	/^(CHANGES.md|README.md)$/,
+	/^(CHANGES.md|README.md|LICENSE.md)$/,
 	/^[^\/]+\.sublime-/
 ];
 
