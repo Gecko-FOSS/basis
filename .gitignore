@@ -7,7 +7,6 @@ build.user.conf.js
 
 # Outputs
 debug/
-release/
 production/
 
 # Modules

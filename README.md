@@ -42,11 +42,14 @@ Flags can be set with the following syntax:
 - `--flag=no`, `--flag=false`: disable
 
 ### Flags
-| flag         | function                         |
-|:------------ |:-------------------------------- |
-| `once`       | Build once, then exit            |
-| `sourcemaps` | Build sourcemaps for client code |
-| `minify`     | Minify client code               |
+| flag         | default | function                         |
+|:------------ |:--------|:-------------------------------- |
+| `watch`      | no      | Watch the filesystem for changes |
+| `sourcemaps` | yes     | Build sourcemaps for client code |
+| `minify`     | no      | Minify client code               |
+| `notify`     | no      | Notify on build completion       |
+
+*Default values are used if the configuration does not specify a value and value was given on the CLI.*
 
 ### Parameters
 | parameter                       | function                             |
@@ -58,13 +61,13 @@ Flags can be set with the following syntax:
 | `--gray=MODULE[,MODULE2,...]`   | Build these modules even if disabled |
 
 ### Presets
-Presets set default values for these flags and parameters.
+Presets set default values for many of these flags and parameters.
 
 #### Debug
 | key          | value     |
 |:------------ |:--------- |
 | `out`        | `./debug` |
-| `once`       | no        |
+| `watch`      | yes       |
 | `sourcemaps` | yes       |
 | `minify`     | no        |
 
@@ -72,7 +75,7 @@ Presets set default values for these flags and parameters.
 | key          | value          |
 |:------------ |:-------------- |
 | `out`        | `./production` |
-| `once`       | yes            |
+| `watch`      | no             |
 | `sourcemaps` | no             |
 | `minify`     | yes            |
 
@@ -86,7 +89,7 @@ gulp --preset=production
 
 To build just stylesheets once in debug mode:
 ```
-gulp --once --only=stylesheets
+gulp --watch=no --only=stylesheets
 ```
 
 To build a debug build without sourcemaps, but with minification to `./derp`, try

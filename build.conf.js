@@ -34,7 +34,6 @@ let styles = {
 };
 
 let config = {
-	// Direct browserSync config
 	browserSync: {
 		proxy: {
 			target: "localhost:8000",
@@ -45,12 +44,13 @@ let config = {
 	preset: "debug",
 	presets: {
 		debug: {
+			watch: true,
 			sourcemaps: true,
 			minify: false,
 			out: "debug"
 		},
 		production: {
-			once: true,
+			watch: false,
 			sourcemaps: false,
 			minify: true,
 			out: "production",
@@ -67,11 +67,29 @@ let config = {
 
 	transforms: [
 		{
+			name: "Server (Runtime)",
 			config: server,
 			default: true,
 			type: "server",
 			extraEntries: ["typings/tsd.d.ts"],
 			source: "node_modules/@server/**/*.ts",
+			dest: "node_modules/@server"
+		},
+		{
+			name: "Server (Common)",
+			config: server,
+			default: true,
+			type: "server",
+			source: "node_modules/@common/**/*.ts",
+			dest: "node_modules/@common"
+		},
+		{
+			config: {
+				rename: "main.js"
+			},
+			name: "Server (Bootstrap)",
+			type: "static",
+			source: "node_modules/@server/bootstrap.js",
 			dest: ""
 		},
 		{
@@ -91,6 +109,12 @@ let config = {
 			type: "static",
 			source: "node_modules/@static/**/*.*",
 			dest: "static"
+		},
+		{
+			name: "Nodemon config",
+			type: "static",
+			source: "nodemon.json",
+			dest: ""
 		}
 	]
 };

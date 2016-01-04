@@ -1,10 +1,11 @@
 {
   "name": "basis-gen",
-  "version": "2.0.0-alpha4",
+  "version": "2.0.0-alpha5",
   "description": "A full-stack project template and generator",
   "dependencies": {
     "express": "^4.13.3",
     "fs-extra": "^0.26.3",
+    "source-map-support": "^0.4.0",
     "ws": "^0.8.1"
   },
   "devDependencies": {
@@ -38,7 +39,7 @@
     "node": ">=5.0"
   },
   "scripts": {
-    "start": "cd debug && nodemon main.js --ignore static/"
+    "start": "cd debug && nodemon main.js --watch node_modules/@server --watch node_modules/@common --watch main.js --ignore static"
   },
   "repository": {
     "type": "git",
