@@ -42,12 +42,12 @@ Flags can be set with the following syntax:
 - `--flag=no`, `--flag=false`: disable
 
 ### Flags
-| flag         | default | function                         |
-|:------------ |:--------|:-------------------------------- |
-| `watch`      | no      | Watch the filesystem for changes |
-| `sourcemaps` | yes     | Build sourcemaps for client code |
-| `minify`     | no      | Minify client code               |
-| `notify`     | no      | Notify on build completion       |
+| flag         | default  | function                         |
+|:------------ |:-------- |:-------------------------------- |
+| `watch`      | no       | Watch the filesystem for changes |
+| `sourcemaps` | yes      | Build sourcemaps for client code |
+| `minify`     | no       | Minify client code               |
+| `notify`     | no       | Notify on build completion       |
 
 *Default values are used if the configuration does not specify a value and value was given on the CLI.*
 
@@ -171,6 +171,7 @@ The `config` parameter is passed directly to the TypeScript compiler.
 The `styles` transform compiles an entry point Sass file into a single CSS bundle.
 
 The `config` parameter is an object with the following keys:
+
 | key | value |
 |:--- |:----- |
 | `sass` | Passed directly to node-sass |
@@ -178,6 +179,12 @@ The `config` parameter is an object with the following keys:
 
 #### type `static`
 The `static` transform copies files as-is and applies no changes to them.
+
+The `config` parameter is an object with the following keys:
+
+| key | value |
+|:--- |:----- |
+| `rename` | Rename the output to this file name. Only works if the input is a single file. |
 
 ## License
 Basis is available under the MIT license. See [LICENSE](LICENSE.md) for more details.
