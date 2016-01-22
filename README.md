@@ -166,6 +166,7 @@ The `config` parameter is passed directly to the TypeScript compiler.
 | key | value |
 |:--- |:----- |
 | `extraEntries` | Extra entries to pass to the TS compiler, usually typings (`.d.ts`) files |
+| `rootDir` | The root to resolve absolute paths from. Only relevant with 'classic' resolution. |
 
 #### type `styles`
 The `styles` transform compiles an entry point Sass file into a single CSS bundle.
