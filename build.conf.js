@@ -30,7 +30,7 @@ let browser = {
 let styles = {
 	sass: {
 	},
-	autoprefixer: ["last 3 versions", "Firefox ESR", "not IE < 11"]
+	autoprefixer: ["last 2 versions", "Firefox ESR", "not IE < 11", "not ExplorerMobile < 11"]
 };
 
 let config = {
