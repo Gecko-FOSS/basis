@@ -30,7 +30,16 @@ let browser = {
 let styles = {
 	sass: {
 	},
-	autoprefixer: ["last 2 versions", "Firefox ESR", "not IE < 11", "not ExplorerMobile < 11"]
+	autoprefixer: ["last 2 versions", "Firefox ESR", "not IE < 11", "not ExplorerMobile < 11"],
+	stylelint: {
+		rules: {
+			"declaration-no-important": true,
+			"indentation": "tab",
+			"function-calc-no-unspaced-operator": true,
+			"property-no-vendor-prefix": true,
+			"number-leading-zero": "always"
+		}
+	}
 };
 
 let config = {
