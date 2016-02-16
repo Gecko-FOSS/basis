@@ -153,7 +153,7 @@ Every transform may specify these keys:
 By specifying the same `id` in two transforms, values can be overridden in more specific contexts. Defining a transform with `id` of "test" in the base configuration, then defining another transform with the same `id` in a preset will allow the preset to override values.
 
 For example:
-```json
+```js
 {
 	presets: {
 		production: {
