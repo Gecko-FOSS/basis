@@ -76,10 +76,8 @@ let config = {
 
 	transforms: [
 		{
-			id: "server",
 			name: "Server (Runtime)",
 			config: server,
-			default: true,
 			type: "server",
 			extraEntries: ["typings/tsd.d.ts"],
 			source: "node_modules/@server/**/*.ts",
@@ -88,7 +86,6 @@ let config = {
 		{
 			name: "Server (Common)",
 			config: server,
-			default: true,
 			type: "server",
 			source: "node_modules/@common/**/*.ts",
 			dest: "node_modules/@common"
