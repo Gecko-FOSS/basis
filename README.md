@@ -143,11 +143,42 @@ Every transform may specify these keys:
 | key | value |
 |:--- |:----- |
 | `type` | (required) The type of transform to use. |
+| `id` | An optional unique ID for this transform. Duplicates are removed. |
 | `name` | A friendly name for the transform. |
 | `source` | (required) This transform's input files. |
 | `dest` | (required) This transform's output location. |
-| `default` | Whether this transform runs by default. Defaults to true. |
+| `disabled` | Whether this transform is turned off by default. Defaults to false. |
 | `config` | Extra parameters specific to the transform. |
+
+By specifying the same `id` in two transforms, values can be overridden in more specific contexts. Defining a transform with `id` of "test" in the base configuration, then defining another transform with the same `id` in a preset will allow the preset to override values.
+
+For example:
+```json
+{
+	presets: {
+		production: {
+			out: "production",
+			transforms: [
+				{
+					id: "test",
+					disabled: true
+				}
+			]
+		}
+	},
+	transforms: [
+		{
+			id: "test",
+			name: "Test the Things!",
+			type: "static",
+			source: "src",
+			dest: ""
+		}
+	]
+}
+```
+
+Here, when running in most any preset, the `test` transform will copy some files around. When the `production` preset is activated, the transform will be disabled.
 
 #### type `server`
 The `server` transform compiles TypeScript files recursively, targeted at server environments.
@@ -177,6 +208,7 @@ The `config` parameter is an object with the following keys:
 |:--- |:----- |
 | `sass` | Passed directly to node-sass |
 | `autoprefixer` | Passed directly to autoprefixer |
+| `stylelint` | Passed directly to stylelint |
 
 #### type `static`
 The `static` transform copies files as-is and applies no changes to them.

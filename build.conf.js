@@ -76,6 +76,7 @@ let config = {
 
 	transforms: [
 		{
+			id: "server",
 			name: "Server (Runtime)",
 			config: server,
 			default: true,
