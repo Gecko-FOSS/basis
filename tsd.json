@@ -6,22 +6,22 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "node/node.d.ts": {
-      "commit": "40c60850ad6c8175a62d5ab48c4e016ea5b3dffe"
+      "commit": "b57c33fec0be3cba8f5e9cec642db873565923d0"
     },
     "mime/mime.d.ts": {
-      "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
+      "commit": "b57c33fec0be3cba8f5e9cec642db873565923d0"
     },
     "serve-static/serve-static.d.ts": {
-      "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
+      "commit": "b57c33fec0be3cba8f5e9cec642db873565923d0"
     },
     "express/express.d.ts": {
-      "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
+      "commit": "b57c33fec0be3cba8f5e9cec642db873565923d0"
     },
     "core-js/core-js.d.ts": {
-      "commit": "11322524f8db9cdb921427cad84cd22fe2d4f965"
+      "commit": "b57c33fec0be3cba8f5e9cec642db873565923d0"
     },
     "ws/ws.d.ts": {
-      "commit": "40c60850ad6c8175a62d5ab48c4e016ea5b3dffe"
+      "commit": "b57c33fec0be3cba8f5e9cec642db873565923d0"
     }
   }
 }
