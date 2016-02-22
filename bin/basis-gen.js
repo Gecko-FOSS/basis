@@ -7,7 +7,15 @@ const readline = require("readline");
 
 const root = path.normalize(path.join(__dirname, ".."));
 
-let rl = readline.createInterface({
+let genPack;
+{
+	const body = fs.readFileSync(path.join(root, "package.json"));
+	genPack = JSON.parse(body);
+}
+
+console.log("Basis Generator v" + genPack.version);
+
+const rl = readline.createInterface({
 	output: process.stdout,
 	input: process.stdin
 });
@@ -19,8 +27,8 @@ if (process.argv[2]) {
 	name = path.parse(out).name;
 }
 
-// Promise wrapper for Inquirer.js
-let prompt = (text, fallback) => {
+// Promise wrapper for readline
+const prompt = (text, fallback) => {
 	return new Promise(resolve => {
 		rl.question(text, answer => {
 			if (!answer) {
@@ -33,10 +41,10 @@ let prompt = (text, fallback) => {
 	});
 };
 
-let answers = {};
+const answers = {};
 
 // Patterns for files we shouldn't copy
-let blacklist = [
+const blacklist = [
 	/^node_modules[\\\/][^@]/,
 	/^.git$/,
 	/^.sass-cache$/,
@@ -47,7 +55,10 @@ let blacklist = [
 	/^[^\/]+\.sublime-/
 ];
 
-let README = (name) => `
+// We use these dependencies only in the generator.
+const blackDeps = new Set(["fs-extra"]);
+
+const README = (name) => `
 # ${name}
 This project was generated with [Basis](https://github.com/LPGhatguy/basis).
 `.trim();
@@ -56,7 +67,7 @@ This project was generated with [Basis](https://github.com/LPGhatguy/basis).
 prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 	.then(projectName => {
 		answers.projectName = projectName;
-		let existing = out || ("./" + projectName);
+		const existing = out || ("./" + projectName);
 
 		return prompt(`Project path? ${existing} `, existing);
 	})
@@ -79,9 +90,9 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 		return new Promise((resolve, reject) => {
 			fs.copy(root, out, {
 				filter: (file) => {
-					let relative = path.relative(root, file);
+					const relative = path.relative(root, file);
 
-					for (let reg of blacklist) {
+					for (const reg of blacklist) {
 						if (reg.test(relative)) {
 							return false;
 						}
@@ -93,6 +104,8 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 				if (err) {
 					console.error(err);
 					reject(err);
+
+					return;
 				}
 
 				resolve();
@@ -104,10 +117,22 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 
 		// Write new package.json
 		let packBody = fs.readFileSync(path.join(root, "package.json")).toString("utf8");
-		let pack = JSON.parse(packBody);
+		const pack = JSON.parse(packBody);
 		pack.name = name;
 		pack.version = "1.0.0";
-		pack.description = "Generated with basis-gen";
+		pack.description = "Generated with basis-gen v" + genPack.version;
+
+		const deps = pack.dependencies;
+		const newDeps = {};
+		for (const key in deps) {
+			if (deps.hasOwnProperty(key)) {
+				if (!blackDeps.has(key)) {
+					newDeps[key] = deps[key];
+				}
+			}
+		}
+		pack.dependencies = newDeps;
+
 		packBody = JSON.stringify(pack, null, 2);
 
 		fs.writeFileSync(path.join(out, "package.json"), packBody);
@@ -124,4 +149,4 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 		console.log("Scaffolded new project at ", out);
 	}).catch(e => {
 		console.error(e);
-	})
+	});
