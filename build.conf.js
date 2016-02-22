@@ -9,7 +9,7 @@ try {
 }
 
 // TypeScript compiler options on the server
-let server = {
+const server = {
 	module: "commonjs",
 	target: "ES5",
 	moduleResolution: "node",
@@ -18,7 +18,7 @@ let server = {
 };
 
 // TypeScript compiler options on the client
-let browser = {
+const browser = {
 	module: "commonjs",
 	sortOutput: true,
 	target: "ES5",
@@ -29,7 +29,7 @@ let browser = {
 
 // Style options
 // sass is passed straight to node-sass
-let styles = {
+const styles = {
 	sass: {
 	},
 	autoprefixer: ["last 2 versions", "Firefox ESR", "not IE < 11", "not ExplorerMobile < 11"],
@@ -44,7 +44,7 @@ let styles = {
 	}
 };
 
-let config = {
+const config = {
 	browserSync: {
 		proxy: {
 			target: "localhost:8000",
