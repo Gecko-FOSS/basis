@@ -13,7 +13,8 @@ let server = {
 	module: "commonjs",
 	target: "ES5",
 	moduleResolution: "node",
-	typescript: typescript
+	typescript: typescript,
+	noEmitOnError: true
 };
 
 // TypeScript compiler options on the client
@@ -22,7 +23,8 @@ let browser = {
 	sortOutput: true,
 	target: "ES5",
 	moduleResolution: "node",
-	typescript: typescript
+	typescript: typescript,
+	noEmitOnError: true
 };
 
 // Style options
