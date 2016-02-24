@@ -1,9 +1,10 @@
+// Compiled using typings@0.6.8
+// Source: https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/ea10ebfa5775e7f85cd6947094dca185d7b3d33e/ws/ws.d.ts
 // Type definitions for ws
 // Project: https://github.com/einaros/ws
 // Definitions by: Paul Loyd <https://github.com/loyd>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-/// <reference path="../node/node.d.ts" />
 
 declare module "ws" {
     import * as events from 'events';

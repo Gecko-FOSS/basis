@@ -81,7 +81,7 @@ let config = {
 			name: "Server (Runtime)",
 			config: server,
 			type: "server",
-			extraEntries: ["typings/tsd.d.ts"],
+			extraEntries: ["typings/main.d.ts"],
 			source: "node_modules/@server/**/*.ts",
 			dest: "node_modules/@server"
 		},
@@ -104,7 +104,7 @@ let config = {
 		{
 			config: browser,
 			type: "browser",
-			extraEntries: ["typings/tsd.d.ts", "typings/fetch.d.ts"],
+			extraEntries: ["typings/browser.d.ts"],
 			source: "node_modules/@client/main.ts",
 			dest: "static/bundle.js"
 		},
