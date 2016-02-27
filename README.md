@@ -1,16 +1,16 @@
-# Basis Generator
-[![npm version](https://img.shields.io/npm/v/basis-gen.svg)](https://www.npmjs.com/package/basis-gen)
-![node version](https://img.shields.io/node/v/basis-gen.svg)
-![license](https://img.shields.io/github/license/LPGhatguy/basis.svg)
+# Guh
+[![npm version](https://img.shields.io/npm/v/guh.svg)](https://www.npmjs.com/package/guh)
+![node version](https://img.shields.io/node/v/guh.svg)
+![license](https://img.shields.io/github/license/LPGhatguy/guh.svg)
 
 ```sh
-npm install -g basis-gen
-basis-gen [project-name]
+npm install -g guh
+guh [project-name]
 ```
 
 A template project and generator for full-stack TypeScript projects.
 
-Basis has the following goals:
+guh has the following goals:
 - Flexible configuration
 - Intuitive organization
 - Isolated builds
@@ -23,7 +23,7 @@ These goals are accomplished with the following technologies:
 - Gulp
 - Docker (production)
 
-Sass compiled via Basis has globbing and single-import enabled.
+Sass compiled via guh has globbing and single-import enabled.
 
 See [CHANGES](CHANGES.md) for a complete changelog.
 
@@ -31,7 +31,7 @@ See [CHANGES](CHANGES.md) for a complete changelog.
 - `node >=5.0`
 
 ## Generator
-Run `basis-gen [project-name]` to generate a new Basis-enabled project. A wizard will guide you through your setup.
+Run `guh [project-name]` to generate a new guh-enabled project. A wizard will guide you through your setup.
 
 ## Usage
 The build system can be run in its default configuration with `gulp`. This loads the default preset defined in the configuration.
@@ -111,7 +111,7 @@ The default transforms are:
 In debug mode (the default), the output is contained in `debug`. In production mode, it can be found in `production`.
 
 ## Configuration
-The primary configuration is located inside `build.conf.js`. Basis will also load `build.user.conf.js` if it exists, which will take precedence over the primary configuration.
+The primary configuration is located inside `build.conf.js`. guh will also load `build.user.conf.js` if it exists, which will take precedence over the primary configuration.
 
 It's recommended that the user config file stays out of version control. It should be based on the following code to patch the primary config:
 
@@ -220,4 +220,4 @@ The `config` parameter is an object with the following keys:
 | `rename` | Rename the output to this file name. Only works if the input is a single file. |
 
 ## License
-Basis is available under the MIT license. See [LICENSE](LICENSE.md) for more details.
+guh is available under the MIT license. See [LICENSE](LICENSE.md) for more details.

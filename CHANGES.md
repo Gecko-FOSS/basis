@@ -1,6 +1,7 @@
-# Basis Changes
+# guh Changes
 
 ## 2.0.0
+- Renamed from Basis to guh
 - Rewrite from the ground-up
 - Build modules now in `node_modules/@build`
 - Switched from LiveReload to BrowserSync

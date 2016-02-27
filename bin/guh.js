@@ -13,7 +13,7 @@ let genPack;
 	genPack = JSON.parse(body);
 }
 
-console.log("Basis Generator v" + genPack.version);
+console.log("guh generator v" + genPack.version);
 
 const rl = readline.createInterface({
 	output: process.stdout,
@@ -60,7 +60,7 @@ const blackDeps = new Set(["fs-extra"]);
 
 const README = (name) => `
 # ${name}
-This project was generated with [Basis](https://github.com/LPGhatguy/basis).
+This project was generated with [guh](https://github.com/LPGhatguy/guh).
 `.trim();
 
 // Let's go!
@@ -120,7 +120,7 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 		const pack = JSON.parse(packBody);
 		pack.name = name;
 		pack.version = "1.0.0";
-		pack.description = "Generated with basis-gen v" + genPack.version;
+		pack.description = "Generated with guh v" + genPack.version;
 
 		const deps = pack.dependencies;
 		const newDeps = {};
@@ -138,10 +138,10 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 		fs.writeFileSync(path.join(out, "package.json"), packBody);
 
 		// If the user has a sublime-project file, let's copy it!
-		if (fs.lstatSync(path.join(root, "basis.sublime-project"))) {
-			let body = fs.readFileSync(path.join(root, "basis.sublime-project")).toString("utf8");
+		if (fs.lstatSync(path.join(root, "guh.sublime-project"))) {
+			let body = fs.readFileSync(path.join(root, "guh.sublime-project")).toString("utf8");
 
-			body = body.replace(/basis/g, name);
+			body = body.replace(/guh/g, name);
 
 			fs.writeFileSync(path.join(out, `${name}.sublime-project`), body);
 		}

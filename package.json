@@ -1,6 +1,6 @@
 {
-  "name": "basis-gen",
-  "version": "2.0.0-alpha6",
+  "name": "guh",
+  "version": "2.0.0-alpha8",
   "description": "A full-stack project template and generator",
   "dependencies": {
     "express": "^4.13.3",
@@ -40,7 +40,7 @@
     "watchify": "^3.4.0"
   },
   "bin": {
-    "basis-gen": "bin/basis-gen.js"
+    "guh": "bin/guh.js"
   },
   "engines": {
     "node": ">=5.0"
