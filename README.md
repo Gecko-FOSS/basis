@@ -1,4 +1,4 @@
-# Guh
+# guh
 [![npm version](https://img.shields.io/npm/v/guh.svg)](https://www.npmjs.com/package/guh)
 ![node version](https://img.shields.io/node/v/guh.svg)
 ![license](https://img.shields.io/github/license/LPGhatguy/guh.svg)
