@@ -1,6 +1,6 @@
 {
   "name": "guh",
-  "version": "2.0.0-alpha8",
+  "version": "2.0.0-alpha9",
   "description": "A full-stack project template and generator",
   "dependencies": {
     "express": "^4.13.3",
@@ -50,12 +50,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LPGhatguy/basis.git"
+    "url": "git+https://github.com/LPGhatguy/guh.git"
   },
   "author": "Lucien Greathouse <me@lpghatguy.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LPGhatguy/basis/issues"
+    "url": "https://github.com/LPGhatguy/guh/issues"
   },
-  "homepage": "https://github.com/LPGhatguy/basis#readme"
+  "homepage": "https://github.com/LPGhatguy/guh#readme"
 }
