@@ -13,6 +13,24 @@ let genPack;
 	genPack = JSON.parse(body);
 }
 
+const helpText = `
+guh generator v${genPack.version}
+
+Usage:
+	guh help: Show this screen
+	guh new [name]: Make a new guh-enabled project
+`.trim();
+
+let command = process.argv[2] || "help";
+
+if (command === "help" || command === "h") {
+	console.log(helpText);
+	process.exit(0);
+} else if (command !== "new") {
+	console.log(`Unknown command "${command}" -- try "guh help"`);
+	process.exit(-1);
+}
+
 console.log("guh generator v" + genPack.version);
 
 const rl = readline.createInterface({
@@ -22,8 +40,8 @@ const rl = readline.createInterface({
 
 let out;
 let name;
-if (process.argv[2]) {
-	out = process.argv[2];
+if (process.argv[3]) {
+	out = process.argv[3];
 	name = path.parse(out).name;
 }
 
