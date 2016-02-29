@@ -5,10 +5,10 @@
 
 ```sh
 npm install -g guh
-guh [project-name]
+guh new [project-name]
 ```
 
-A template project and generator for full-stack TypeScript projects.
+A template project and generator for full-stack TypeScript and Sass (SCSS) projects.
 
 guh has the following goals:
 - Flexible configuration
@@ -20,10 +20,11 @@ These goals are accomplished with the following technologies:
 - TypeScript
 - Browserify
 - Sass (libsass)
+- PostCSS
 - Gulp
 - Docker (production)
 
-Sass compiled via guh has globbing and single-import enabled.
+Sass compiled via guh has globbing and single-import capability via PostCSS plugins.
 
 See [CHANGES](CHANGES.md) for a complete changelog.
 
@@ -31,7 +32,7 @@ See [CHANGES](CHANGES.md) for a complete changelog.
 - `node >=5.0`
 
 ## Generator
-Run `guh [project-name]` to generate a new guh-enabled project. A wizard will guide you through your setup.
+Run `guh new [project-name]` (like GNU) to generate a new guh-enabled project. A wizard will guide you through your setup.
 
 ## Usage
 The build system can be run in its default configuration with `gulp`. This loads the default preset defined in the configuration.
