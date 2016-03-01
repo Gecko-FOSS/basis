@@ -45,12 +45,12 @@ const styles = {
 };
 
 const config = {
-	// browserSync: {
-	// 	proxy: {
-	// 		target: "localhost:8000",
-	// 		ws: true
-	// 	}
-	// },
+	browserSync: {
+		proxy: {
+			target: "localhost:8000",
+			ws: true
+		}
+	},
 
 	preset: "debug",
 	presets: {
