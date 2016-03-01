@@ -94,8 +94,8 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 		rl.close();
 	})
 	.then(() => {
-		out = answers.path || path;
-		name = answers.name || name;
+		out = answers.path || out;
+		name = answers.projectName || name;
 
 		if (!path.isAbsolute(out)) {
 			out = path.join(process.cwd(), out);
