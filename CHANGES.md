@@ -5,9 +5,10 @@
 - Rewrite from the ground-up
 - Build modules now in `node_modules/@build`
 - Switched from LiveReload to BrowserSync
+- Switched from Ruby Sass to libsass
 - Now requires Node ^5.0
 - More flexible configuration format
-	- User configuration support
+	- Local configuration support
 
 ## 1.2.1
 - Fixed version number in `package.json`

@@ -43,12 +43,13 @@ Flags can be set with the following syntax:
 - `--flag=no`, `--flag=false`: disable
 
 ### Flags
-| flag         | default  | function                         |
-|:------------ |:-------- |:-------------------------------- |
-| `watch`      | no       | Watch the filesystem for changes |
-| `sourcemaps` | yes      | Build sourcemaps for client code |
-| `minify`     | no       | Minify client code               |
-| `notify`     | no       | Notify on build completion       |
+| flag          | default  | function                         |
+|:------------- |:-------- |:-------------------------------- |
+| `watch`       | no       | Watch the filesystem for changes |
+| `sourcemaps`  | yes      | Build sourcemaps for client code |
+| `minify`      | no       | Minify client code               |
+| `notify`      | no       | Notify on build completion       |
+| `browsersync` | no       | Run client via Browsersync       |
 
 *Default values are used if the configuration does not specify a value and value was given on the CLI.*
 
@@ -65,20 +66,22 @@ Flags can be set with the following syntax:
 Presets set default values for many of these flags and parameters.
 
 #### Debug
-| key          | value     |
-|:------------ |:--------- |
-| `out`        | `./debug` |
-| `watch`      | yes       |
-| `sourcemaps` | yes       |
-| `minify`     | no        |
+| key           | value     |
+|:------------- |:--------- |
+| `out`         | `./debug` |
+| `watch`       | yes       |
+| `sourcemaps`  | yes       |
+| `minify`      | no        |
+| `browsersync` | yes       | 
 
 #### Production
-| key          | value          |
-|:------------ |:-------------- |
-| `out`        | `./production` |
-| `watch`      | no             |
-| `sourcemaps` | no             |
-| `minify`     | yes            |
+| key           | value          |
+|:------------- |:-------------- |
+| `out`         | `./production` |
+| `watch`       | no             |
+| `sourcemaps`  | no             |
+| `minify`      | yes            |
+| `browsersync` | yes            |
 
 The default production preset also adds an extra transform, copying `package.json` and `Dockerfile` to the build directory.
 
