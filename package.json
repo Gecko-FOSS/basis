@@ -11,7 +11,6 @@
   "devDependencies": {
     "autoprefixer": "^6.3.3",
     "browser-sync": "^2.10.1",
-    "browserify": "^13.0.0",
     "cssnano": "^3.5.2",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
@@ -20,6 +19,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-postcss": "^6.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-rollup": "^1.7.0",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-typescript": "^2.10.0",
