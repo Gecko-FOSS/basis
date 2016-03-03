@@ -19,7 +19,7 @@ const server = {
 
 // TypeScript compiler options on the client
 const browser = {
-	module: "commonjs",
+	module: "es6",
 	sortOutput: true,
 	target: "ES5",
 	moduleResolution: "node",
