@@ -58,8 +58,10 @@ Flags can be set with the following syntax:
 |:------------------------------- |:------------------------------------ |
 | `--out=PATH`                    | Outputs result into `PATH`           |
 | `--preset=PRESET`               | Sets build preset to `PRESET`        |
-| `--only=MODULE[,MODULE2,...]`   | Build only these modules             |
-| `--except=MODULE[,MODULE2,...]` | Don't build these modules            |
+| `--white=MODULE[,MODULE2,...]`  | Build only these modules             |
+| `--only=MODULE[,MODULE2,...]`   | Alias for `white`                    |
+| `--black=MODULE[,MODULE2,...]`  | Don't build these modules            |
+| `--except=MODULE[,MODULE2,...]` | Alias for `black`                    |
 | `--gray=MODULE[,MODULE2,...]`   | Build these modules even if disabled |
 
 ### Presets
