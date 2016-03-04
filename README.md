@@ -1,7 +1,7 @@
 # guh
 [![npm version](https://img.shields.io/npm/v/guh.svg)](https://www.npmjs.com/package/guh)
-![node version](https://img.shields.io/node/v/guh.svg)
-![license](https://img.shields.io/github/license/LPGhatguy/guh.svg)
+![node version](https://img.shields.io/badge/node-%3E=5.0-brightgreen.svg)
+![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ```sh
 npm install -g guh
