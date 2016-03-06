@@ -1,7 +1,7 @@
 # guh
 [![npm version](https://img.shields.io/npm/v/guh.svg)](https://www.npmjs.com/package/guh)
-![node version](https://img.shields.io/node/v/guh.svg)
-![license](https://img.shields.io/github/license/LPGhatguy/guh.svg)
+![node version](https://img.shields.io/badge/node-%3E=5.0-brightgreen.svg)
+![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ```sh
 npm install -g guh
@@ -33,6 +33,9 @@ See [CHANGES](CHANGES.md) for a complete changelog.
 
 ## Generator
 Run `guh new [project-name]` (like GNU) to generate a new guh-enabled project. A wizard will guide you through your setup.
+
+## Upgrading
+guh is intended to be possible to upgrade in existing projects. Simply insert a new semver-compatible version from `node_modules/@build`; existing configurations will continue to function across minor and revision upgrades.
 
 ## Usage
 The build system can be run in its default configuration with `gulp`. This loads the default preset defined in the configuration.
