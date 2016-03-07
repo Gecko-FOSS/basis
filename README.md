@@ -141,6 +141,7 @@ The configuration object has a number of fields that affect compilation globally
 | `preset` | The default preset name to use. |
 | `presets` | A hashmap of defined presets. |
 | `transforms` | The list of transforms to apply when building. |
+| `modules` | The `guh` modules to load, defaults to `["browser", "server", "styles", "static"]` |
 
 ### Transforms
 All transforms are plain JS objects with some specific keys.

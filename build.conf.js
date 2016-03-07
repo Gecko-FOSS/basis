@@ -10,6 +10,7 @@ try {
 
 // TypeScript compiler options on the server
 const server = {
+	typings: true,
 	typescript: {
 		module: "commonjs",
 		target: "ES5",
