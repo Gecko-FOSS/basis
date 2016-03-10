@@ -40,6 +40,8 @@ const browser = {
 const styles = {
 	sass: {
 	},
+	sassyImport: {
+	},
 	autoprefixer: ["last 2 versions", "Firefox ESR", "not IE < 11", "not ExplorerMobile < 11"],
 	stylelint: {
 		rules: {
