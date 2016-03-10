@@ -141,6 +141,7 @@ The configuration object has a number of fields that affect compilation globally
 | `preset` | The default preset name to use. |
 | `presets` | A hashmap of defined presets. |
 | `transforms` | The list of transforms to apply when building. |
+| `modules` | The `guh` modules to load, defaults to `["browser", "server", "styles", "static"]` |
 
 ### Transforms
 All transforms are plain JS objects with some specific keys.
@@ -190,21 +191,30 @@ Here, when running in most any preset, the `test` transform will copy some files
 #### type `server`
 The `server` transform compiles TypeScript files recursively, targeted at server environments.
 
-The `config` parameter is passed directly to the TypeScript compiler.
-
 | key | value |
 |:--- |:----- |
 | `extraEntries` | Extra entries to pass to the TS compiler, usually typings (`.d.ts`) files |
 
+The `config` parameter is an object with the following keys:
+
+| key | value |
+|:--- |:----- |
+| `typescript` | Passed directly to TypeScript |
+
 #### type `browser`
 The `browser` transform compiles an entry point TypeScript file and its dependencies into a Browserify bundle.
-
-The `config` parameter is passed directly to the TypeScript compiler.
 
 | key | value |
 |:--- |:----- |
 | `extraEntries` | Extra entries to pass to the TS compiler, usually typings (`.d.ts`) files |
 | `rootDir` | The root to resolve absolute paths from. Only relevant with 'classic' resolution. |
+
+The `config` parameter is an object with the following keys:
+
+| key | value |
+|:--- |:----- |
+| `typescript` | Passed directly to TypeScript |
+| `browserify` | Passed directly to Browserify |
 
 #### type `styles`
 The `styles` transform compiles an entry point Sass file into a single CSS bundle.

@@ -10,27 +10,37 @@ try {
 
 // TypeScript compiler options on the server
 const server = {
-	module: "commonjs",
-	target: "ES5",
-	moduleResolution: "node",
-	typescript: typescript,
-	noEmitOnError: true
+	typings: true,
+	typescript: {
+		module: "commonjs",
+		target: "ES5",
+		moduleResolution: "node",
+		typescript: typescript,
+		noEmitOnError: true
+	}
 };
 
 // TypeScript compiler options on the client
 const browser = {
-	module: "commonjs",
-	sortOutput: true,
-	target: "ES5",
-	moduleResolution: "node",
-	typescript: typescript,
-	noEmitOnError: true
+	typescript: {
+		module: "commonjs",
+		sortOutput: true,
+		target: "ES5",
+		moduleResolution: "node",
+		typescript: typescript,
+		noEmitOnError: true
+	},
+
+	browserify: {
+	}
 };
 
 // Style options
 // sass is passed straight to node-sass
 const styles = {
 	sass: {
+	},
+	sassyImport: {
 	},
 	autoprefixer: ["last 2 versions", "Firefox ESR", "not IE < 11", "not ExplorerMobile < 11"],
 	stylelint: {
