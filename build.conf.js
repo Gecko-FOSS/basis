@@ -46,10 +46,12 @@ const styles = {
 	stylelint: {
 		rules: {
 			"declaration-no-important": true,
-			"indentation": "tab",
+			"declaration-block-no-duplicate-properties": true,
+			"block-no-single-line": true,
 			"function-calc-no-unspaced-operator": true,
 			"property-no-vendor-prefix": true,
 			"number-leading-zero": "always"
+			"indentation": "tab",
 		}
 	}
 };
