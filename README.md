@@ -184,7 +184,7 @@ The `server` transform compiles TypeScript files recursively, targeted at server
 | key | value |
 |:--- |:----- |
 | `extraEntries` | Extra entries to pass to the TS compiler, usually typings (`.d.ts`) files |
-| `typingsDest` | The output directory for typings files. Not outputed if omitted. |
+| `typingsDest` | The output directory for typings files. Not outputted if omitted. |
 
 The `config` parameter is an object with the following keys:
 
