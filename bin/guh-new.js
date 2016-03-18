@@ -52,8 +52,8 @@ const blacklist = [
 const blackDeps = new Set(["fs-extra"]);
 
 const README = (name) => `
-# ${name}
-This project was generated with [guh](https://github.com/LPGhatguy/guh).
+# ${ name }
+${ answers.description }
 `.trim();
 
 // Let's go!
@@ -66,6 +66,12 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 	})
 	.then(projectPath => {
 		answers.path = projectPath;
+
+		return prompt(`Description? `, "Generated with guh")
+	})
+	.then(description => {
+		answers.description = description;
+
 		rl.close();
 	})
 	.then(() => {
@@ -111,9 +117,15 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 		// Write new package.json
 		let packBody = fs.readFileSync(path.join(root, "package.json")).toString("utf8");
 		const pack = JSON.parse(packBody);
+		pack.author = undefined;
+		pack.bugs = undefined;
+		pack.homepage = undefined;
+		pack.repository = undefined;
+		pack.bin = undefined;
+
 		pack.name = name;
 		pack.version = "1.0.0";
-		pack.description = "Generated with guh v" + guh.version;
+		pack.description = answers.description;
 		pack.guh = {
 			version: guh.version
 		};
