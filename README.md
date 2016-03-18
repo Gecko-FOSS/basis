@@ -105,16 +105,6 @@ gulp --sourcemaps=no --minify --out=derp
 ```
 
 ## Files
-The default transforms are:
-
-| type   | input                            | output              |
-|:------ |:-------------------------------- |:------------------- |
-| styles | `node_modules/@client/main.scss` | `static/bundle.css` |
-| static | `node_modules/@static`           | `static`            |
-| static | `Dockerfile`, `package.json`     | `.`                 |
-| server | `node_modules/@server`           | `.`                 |
-| client | `node_modules/@client/main.ts`   | `static/bundle.js`  |
-
 In debug mode (the default), the output is contained in `debug`. In production mode, it can be found in `production`.
 
 ## Configuration
@@ -194,6 +184,7 @@ The `server` transform compiles TypeScript files recursively, targeted at server
 | key | value |
 |:--- |:----- |
 | `extraEntries` | Extra entries to pass to the TS compiler, usually typings (`.d.ts`) files |
+| `typingsDest` | The output directory for typings files. Not outputed if omitted. |
 
 The `config` parameter is an object with the following keys:
 

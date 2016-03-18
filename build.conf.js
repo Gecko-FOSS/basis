@@ -8,9 +8,8 @@ try {
 	process.exit(1);
 }
 
-// TypeScript compiler options on the server
+// Compiler options on the server
 const server = {
-	typings: true,
 	typescript: {
 		module: "commonjs",
 		target: "ES5",
@@ -20,7 +19,7 @@ const server = {
 	}
 };
 
-// TypeScript compiler options on the client
+// Compiler options on the client
 const browser = {
 	typescript: {
 		module: "commonjs",
