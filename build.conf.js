@@ -101,6 +101,7 @@ const config = {
 	transforms: [
 		// Build primary server files (node_modules/@server/)
 		{
+			id: "server-runtime",
 			name: "Server (Runtime)",
 			config: server,
 			type: "server",
@@ -111,6 +112,7 @@ const config = {
 
 		// Builds Isomorphic common files (node_modules/@common/)
 		{
+			id: "server-common",
 			name: "Server (Common)",
 			config: server,
 			type: "server",
@@ -120,10 +122,11 @@ const config = {
 
 		// Copies the server bootstrap file
 		{
+			id: "server-bootstrap",
+			name: "Server (Bootstrap)",
 			config: {
 				rename: "main.js"
 			},
-			name: "Server (Bootstrap)",
 			type: "static",
 			source: "node_modules/@server/bootstrap.js",
 			dest: ""
