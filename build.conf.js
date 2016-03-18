@@ -47,7 +47,6 @@ const styles = {
 		rules: {
 			"declaration-no-important": true,
 			"declaration-block-no-duplicate-properties": true,
-			"block-no-single-line": true,
 			"function-calc-no-unspaced-operator": true,
 			"property-no-vendor-prefix": true,
 			"number-leading-zero": "always",
