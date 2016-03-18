@@ -9,6 +9,7 @@ try {
 }
 
 // Compiler options on the server
+// typescript goes to gulp-typescript
 const server = {
 	typescript: {
 		module: "commonjs",
@@ -20,6 +21,8 @@ const server = {
 };
 
 // Compiler options on the client
+// typescript goes to tsify
+// browserify goes to browserify
 const browser = {
 	typescript: {
 		module: "commonjs",
@@ -35,7 +38,10 @@ const browser = {
 };
 
 // Style options
-// sass is passed straight to node-sass
+// sass is passed to node-sass
+// sassyImport is passed to postcss-sassy-import
+// autoprefixer is passed to autoprefixer
+// stylelint is passed to stylelint
 const styles = {
 	sass: {
 	},
@@ -55,6 +61,8 @@ const styles = {
 };
 
 const config = {
+	// Omit this to turn off Browsersync
+	// Passed to Browsersync
 	browserSync: {
 		proxy: {
 			target: "localhost:8000",
@@ -62,7 +70,10 @@ const config = {
 		}
 	},
 
+	// Default preset
 	preset: "debug",
+
+	// Collection of presets
 	presets: {
 		debug: {
 			watch: true,
@@ -86,22 +97,28 @@ const config = {
 		}
 	},
 
+	// List of transforms to apply
 	transforms: [
+		// Build primary server files (node_modules/@server/)
 		{
 			name: "Server (Runtime)",
 			config: server,
 			type: "server",
 			extraEntries: ["typings/main.d.ts"],
 			source: "node_modules/@server/**/*.ts",
-			dest: "node_modules/@server"
+			dest: "node_modules/@server/"
 		},
+
+		// Builds Isomorphic common files (node_modules/@common/)
 		{
 			name: "Server (Common)",
 			config: server,
 			type: "server",
 			source: "node_modules/@common/**/*.ts",
-			dest: "node_modules/@common"
+			dest: "node_modules/@common/"
 		},
+
+		// Copies the server bootstrap file
 		{
 			config: {
 				rename: "main.js"
@@ -111,6 +128,8 @@ const config = {
 			source: "node_modules/@server/bootstrap.js",
 			dest: ""
 		},
+
+		// Builds a Browserify bundle of node_modules/@client/
 		{
 			config: browser,
 			type: "browser",
@@ -118,17 +137,23 @@ const config = {
 			source: "node_modules/@client/main.ts",
 			dest: "static/bundle.js"
 		},
+
+		// Compiles all style files
 		{
 			config: styles,
 			type: "styles",
 			source: "node_modules/@client/main.scss",
 			dest: "static/bundle.css"
 		},
+
+		// Copies static files to static/
 		{
 			type: "static",
 			source: "node_modules/@static/**/*.*",
-			dest: "static"
+			dest: "static/"
 		},
+
+		// Copies nodemon configuration
 		{
 			name: "Nodemon config",
 			type: "static",
