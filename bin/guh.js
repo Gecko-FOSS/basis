@@ -5,6 +5,8 @@ const aliases = {
 	h: "help",
 	"-h": "help",
 	"/h": "help",
+	v: "version",
+	"-v": "version",
 	n: "new",
 	u: "update"
 };
