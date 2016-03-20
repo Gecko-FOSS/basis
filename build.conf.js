@@ -54,8 +54,7 @@ const styles = {
 			"declaration-block-no-duplicate-properties": true,
 			"function-calc-no-unspaced-operator": true,
 			"property-no-vendor-prefix": true,
-			"number-leading-zero": "always",
-			"indentation": "tab"
+			"number-leading-zero": "always"
 		}
 	}
 };
