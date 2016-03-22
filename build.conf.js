@@ -115,6 +115,7 @@ const config = {
 			name: "Server (Common)",
 			config: server,
 			type: "server",
+			extraEntries: ["typings/main.d.ts"],
 			source: "node_modules/@common/**/*.ts",
 			dest: "node_modules/@common/"
 		},
