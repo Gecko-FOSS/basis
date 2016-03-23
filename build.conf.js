@@ -8,32 +8,29 @@ try {
 	process.exit(1);
 }
 
+// General typescript options on both the client and server
+const tsConfig = {
+	module: "commonjs",
+	target: "ES5",
+	moduleResolution: "node",
+	typescript: typescript,
+	noEmitOnError: true,
+	experimentalDecorators: true
+};
+
 // Compiler options on the server
 // typescript goes to gulp-typescript
 const server = {
-	typescript: {
-		module: "commonjs",
-		target: "ES5",
-		moduleResolution: "node",
-		typescript: typescript,
-		noEmitOnError: true,
-		experimentalDecorators: true
-	}
+	typescript: tsConfig
 };
 
 // Compiler options on the client
 // typescript goes to tsify
 // browserify goes to browserify
 const browser = {
-	typescript: {
-		module: "commonjs",
-		sortOutput: true,
-		target: "ES5",
-		moduleResolution: "node",
-		typescript: typescript,
-		noEmitOnError: true,
-		experimentalDecorators: true
-	},
+	typescript: Object.assign({}, tsConfig, {
+		sortOutput: true
+	}),
 
 	browserify: {
 	}

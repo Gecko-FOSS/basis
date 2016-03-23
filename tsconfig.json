@@ -2,7 +2,9 @@
 	"compilerOptions": {
 		"module": "commonjs",
 		"target": "ES5",
-		"moduleResolution": "node"
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"noEmitOnError": true
 	},
 	"files": [
 		"typings/main.d.ts",
