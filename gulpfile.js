@@ -4,4 +4,4 @@
 
 "use strict";
 
-require("@build/main");
+require("app/build/main");

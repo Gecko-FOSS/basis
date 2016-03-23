@@ -11,4 +11,4 @@ production/
 
 # Modules
 node_modules/*
-!node_modules/@*
+!node_modules/app

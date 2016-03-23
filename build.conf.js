@@ -99,15 +99,15 @@ const config = {
 
 	// List of pipelines to build and use
 	pipelines: [
-		// Build primary server files (node_modules/@server/)
+		// Build primary server files (node_modules/app/server/)
 		{
 			tags: ["server"],
 			name: "Server (Runtime)",
 			config: server,
 			type: "server",
 
-			input: "node_modules/@server/**/*.ts",
-			output: "node_modules/@server/",
+			input: "node_modules/app/server/**/*.ts",
+			output: "node_modules/app/server/",
 
 			extraEntries: ["typings/main.d.ts"],
 
@@ -116,15 +116,15 @@ const config = {
 			moduleEntryPoint: "main.ts"
 		},
 
-		// Builds Isomorphic common files (node_modules/@common/)
+		// Builds Isomorphic common files (node_modules/app/common/)
 		{
 			tags: ["server"],
 			name: "Server (Common)",
 			config: server,
 			type: "server",
 
-			input: "node_modules/@common/**/*.ts",
-			output: "node_modules/@common/",
+			input: "node_modules/app/common/**/*.ts",
+			output: "node_modules/app/common/",
 
 			extraEntries: ["typings/main.d.ts"]
 		},
@@ -135,19 +135,19 @@ const config = {
 			name: "Server (Bootstrap)",
 			type: "static",
 
-			input: "node_modules/@server/bootstrap.js",
+			input: "node_modules/app/server/bootstrap.js",
 			output: "",
 
 			rename: "main.js"
 		},
 
-		// Builds a Browserify bundle of node_modules/@client/
+		// Builds a Browserify bundle of node_modules/app/client/
 		{
 			tags: ["client"],
 			config: browser,
 			type: "browser",
 
-			input: "node_modules/@client/main.ts",
+			input: "node_modules/app/client/main.ts",
 			output: "static/bundle.js",
 
 			extraEntries: ["typings/browser.d.ts"],
@@ -159,7 +159,7 @@ const config = {
 			config: styles,
 			type: "styles",
 
-			input: "node_modules/@client/main.scss",
+			input: "node_modules/app/client/main.scss",
 			output: "static/bundle.css"
 		},
 
@@ -168,7 +168,7 @@ const config = {
 			tags: ["client"],
 			type: "static",
 
-			input: "node_modules/@static/**/*.*",
+			input: "node_modules/app/static/**/*.*",
 			output: "static/"
 		},
 

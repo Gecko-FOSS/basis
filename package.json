@@ -8,6 +8,7 @@
     "source-map-support": "^0.4.0",
     "ws": "^1.0.1"
   },
+  "bundledDependencies": ["app"],
   "devDependencies": {
     "autoprefixer": "^6.3.3",
     "browser-sync": "^2.10.1",
