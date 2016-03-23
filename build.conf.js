@@ -1,5 +1,7 @@
 "use strict";
 
+const pack = require("./package.json");
+
 // Load TypeScript from our dependencies
 try {
 	var typescript = require("typescript");
@@ -108,8 +110,9 @@ const config = {
 
 			extraEntries: ["typings/main.d.ts"],
 
-			typingsDest: "typings",
-			moduleName: "guh"
+			typingsDest: "typings/index.d.ts",
+			moduleName: pack.name,
+			moduleEntryPoint: "main.ts"
 		},
 
 		// Builds Isomorphic common files (node_modules/@common/)
