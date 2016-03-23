@@ -1,6 +1,6 @@
 # guh Changes
 
-## 2.0.0
+## 2.0.0 (WIP)
 - Renamed from Basis to guh
 - Rewrite from the ground-up
 - Build modules now in `node_modules/@build`
