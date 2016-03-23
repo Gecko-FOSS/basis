@@ -127,7 +127,7 @@ The configuration object has a number of fields that affect compilation globally
 
 | key | value |
 |:--- |:----- |
-| `browerSync` | A configuration object passed directly to browserSync. Omit the object to turn off browserSync. |
+| `browersync` | A configuration object passed directly to browserSync. Omit the object to turn off browserSync. |
 | `preset` | The default preset name to use. |
 | `presets` | A hashmap of defined presets. |
 | `pipelines` | The list of pipelines to apply when building. |
@@ -142,8 +142,8 @@ Every pipeline may specify these keys:
 | `type` | (required) The type of pipeline to use. |
 | `id` | An optional unique ID for this pipeline. Duplicates are removed. |
 | `name` | A friendly name for the pipeline. |
-| `source` | (required) This pipeline's input files. |
-| `dest` | (required) This pipeline's output location. |
+| `input` | (required) This pipeline's input files. |
+| `output` | (required) This pipeline's output location. |
 | `disabled` | Whether this pipeline is turned off by default. Defaults to false. |
 | `config` | Extra parameters specific to the pipeline. |
 
@@ -168,8 +168,8 @@ For example:
 			id: "test",
 			name: "Test the Things!",
 			type: "static",
-			source: "src",
-			dest: ""
+			input: "src",
+			output: ""
 		}
 	]
 }
