@@ -111,7 +111,7 @@ const config = {
 
 			extraEntries: ["typings/main.d.ts"],
 
-			typingsDest: "typings/index.d.ts",
+			typingsOutput: "typings/index.d.ts",
 			moduleName: pack.name,
 			moduleEntryPoint: "main.ts"
 		},
