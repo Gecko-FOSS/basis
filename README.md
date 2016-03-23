@@ -205,7 +205,7 @@ The `config` parameter is an object with the following keys:
 
 | key | value |
 |:--- |:----- |
-| `typescript` | Passed directly to TypeScript |
+| `typescript` | Passed directly to gulp-typescript |
 | `browserify` | Passed directly to Browserify |
 
 #### type `styles`
@@ -216,6 +216,7 @@ The `config` parameter is an object with the following keys:
 | key | value |
 |:--- |:----- |
 | `sass` | Passed directly to node-sass |
+| `sassyImport` | Passed directly to postcss-sassy-import |
 | `autoprefixer` | Passed directly to autoprefixer |
 | `stylelint` | Passed directly to stylelint |
 
