@@ -103,11 +103,13 @@ const config = {
 			name: "Server (Runtime)",
 			config: server,
 			type: "server",
-			extraEntries: ["typings/main.d.ts"],
 			source: "node_modules/@server/**/*.ts",
 			dest: "node_modules/@server/",
+
+			extraEntries: ["typings/main.d.ts"],
+
 			typingsDest: "typings",
-			typingsBaseName: "doh"
+			moduleName: "guh"
 		},
 
 		// Builds Isomorphic common files (node_modules/@common/)
@@ -116,21 +118,21 @@ const config = {
 			name: "Server (Common)",
 			config: server,
 			type: "server",
-			extraEntries: ["typings/main.d.ts"],
 			source: "node_modules/@common/**/*.ts",
-			dest: "node_modules/@common/"
+			dest: "node_modules/@common/",
+
+			extraEntries: ["typings/main.d.ts"]
 		},
 
 		// Copies the server bootstrap file
 		{
 			id: "server-bootstrap",
 			name: "Server (Bootstrap)",
-			config: {
-				rename: "main.js"
-			},
 			type: "static",
 			source: "node_modules/@server/bootstrap.js",
-			dest: ""
+			dest: "",
+
+			rename: "main.js"
 		},
 
 		// Builds a Browserify bundle of node_modules/@client/
