@@ -38,7 +38,7 @@ const answers = {};
 
 // Patterns for files we shouldn't copy
 const blacklist = [
-	/^node_modules[\\\/][^@]/,
+	/^node_modules[\\\/](?!app)/,
 	/^.git$/,
 	/^.sass-cache$/,
 	/^bin$/,
