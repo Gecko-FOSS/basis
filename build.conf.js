@@ -63,7 +63,7 @@ const styles = {
 const config = {
 	// Omit this to turn off Browsersync
 	// Passed to Browsersync
-	browserSync: {
+	browsersync: {
 		proxy: {
 			target: "localhost:8000",
 			ws: true
@@ -90,8 +90,8 @@ const config = {
 				{
 					name: "Metadata",
 					type: "static",
-					source: ["package.json", "Dockerfile"],
-					dest: ""
+					input: ["package.json", "Dockerfile"],
+					output: ""
 				}
 			]
 		}
@@ -105,8 +105,9 @@ const config = {
 			name: "Server (Runtime)",
 			config: server,
 			type: "server",
-			source: "node_modules/@server/**/*.ts",
-			dest: "node_modules/@server/",
+
+			input: "node_modules/@server/**/*.ts",
+			output: "node_modules/@server/",
 
 			extraEntries: ["typings/main.d.ts"],
 
@@ -121,8 +122,9 @@ const config = {
 			name: "Server (Common)",
 			config: server,
 			type: "server",
-			source: "node_modules/@common/**/*.ts",
-			dest: "node_modules/@common/",
+
+			input: "node_modules/@common/**/*.ts",
+			output: "node_modules/@common/",
 
 			extraEntries: ["typings/main.d.ts"]
 		},
@@ -132,8 +134,9 @@ const config = {
 			id: "server-bootstrap",
 			name: "Server (Bootstrap)",
 			type: "static",
-			source: "node_modules/@server/bootstrap.js",
-			dest: "",
+
+			input: "node_modules/@server/bootstrap.js",
+			output: "",
 
 			rename: "main.js"
 		},
@@ -142,32 +145,37 @@ const config = {
 		{
 			config: browser,
 			type: "browser",
+
+			input: "node_modules/@client/main.ts",
+			output: "static/bundle.js",
+
 			extraEntries: ["typings/browser.d.ts"],
-			source: "node_modules/@client/main.ts",
-			dest: "static/bundle.js"
 		},
 
 		// Compiles all style files
 		{
 			config: styles,
 			type: "styles",
-			source: "node_modules/@client/main.scss",
-			dest: "static/bundle.css"
+
+			input: "node_modules/@client/main.scss",
+			output: "static/bundle.css"
 		},
 
 		// Copies static files to static/
 		{
 			type: "static",
-			source: "node_modules/@static/**/*.*",
-			dest: "static/"
+
+			input: "node_modules/@static/**/*.*",
+			output: "static/"
 		},
 
 		// Copies nodemon configuration
 		{
 			name: "Nodemon config",
 			type: "static",
-			source: "nodemon.json",
-			dest: ""
+
+			input: "nodemon.json",
+			output: ""
 		}
 	]
 };
