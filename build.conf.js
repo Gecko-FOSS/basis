@@ -16,7 +16,8 @@ const server = {
 		target: "ES5",
 		moduleResolution: "node",
 		typescript: typescript,
-		noEmitOnError: true
+		noEmitOnError: true,
+		experimentalDecorators: true
 	}
 };
 
@@ -30,7 +31,8 @@ const browser = {
 		target: "ES5",
 		moduleResolution: "node",
 		typescript: typescript,
-		noEmitOnError: true
+		noEmitOnError: true,
+		experimentalDecorators: true
 	},
 
 	browserify: {
