@@ -84,7 +84,7 @@ const config = {
 			sourcemaps: false,
 			minify: true,
 			out: "production",
-			transforms: [
+			pipelines: [
 				{
 					name: "Metadata",
 					type: "static",
@@ -95,8 +95,8 @@ const config = {
 		}
 	},
 
-	// List of transforms to apply
-	transforms: [
+	// List of pipelines to build and use
+	pipelines: [
 		// Build primary server files (node_modules/@server/)
 		{
 			id: "server-runtime",
