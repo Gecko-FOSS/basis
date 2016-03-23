@@ -101,7 +101,7 @@ const config = {
 	pipelines: [
 		// Build primary server files (node_modules/@server/)
 		{
-			id: "server-runtime",
+			tags: ["server"],
 			name: "Server (Runtime)",
 			config: server,
 			type: "server",
@@ -118,7 +118,7 @@ const config = {
 
 		// Builds Isomorphic common files (node_modules/@common/)
 		{
-			id: "server-common",
+			tags: ["server"],
 			name: "Server (Common)",
 			config: server,
 			type: "server",
@@ -131,7 +131,7 @@ const config = {
 
 		// Copies the server bootstrap file
 		{
-			id: "server-bootstrap",
+			tags: ["server"],
 			name: "Server (Bootstrap)",
 			type: "static",
 
@@ -143,6 +143,7 @@ const config = {
 
 		// Builds a Browserify bundle of node_modules/@client/
 		{
+			tags: ["client"],
 			config: browser,
 			type: "browser",
 
@@ -154,6 +155,7 @@ const config = {
 
 		// Compiles all style files
 		{
+			tags: ["client"],
 			config: styles,
 			type: "styles",
 
@@ -163,6 +165,7 @@ const config = {
 
 		// Copies static files to static/
 		{
+			tags: ["client"],
 			type: "static",
 
 			input: "node_modules/@static/**/*.*",
@@ -171,6 +174,7 @@ const config = {
 
 		// Copies nodemon configuration
 		{
+			tags: ["server"],
 			name: "Nodemon config",
 			type: "static",
 
