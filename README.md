@@ -127,7 +127,7 @@ The configuration object has a number of fields that affect compilation globally
 
 | key | value |
 |:--- |:----- |
-| `browersync` | A configuration object passed directly to browserSync. Omit the object to turn off browserSync. |
+| `browsersync` | A configuration object passed directly to Browsersync. Omit the object to turn off Browsersync. |
 | `preset` | The default preset name to use. |
 | `presets` | A hashmap of defined presets. |
 | `pipelines` | The list of pipelines to apply when building. |
