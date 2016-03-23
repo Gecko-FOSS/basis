@@ -86,7 +86,7 @@ Presets set default values for many of these flags and parameters.
 | `minify`      | yes            |
 | `browsersync` | yes            |
 
-The default production preset also adds an extra transform, copying `package.json` and `Dockerfile` to the build directory.
+The default production preset also adds an extra pipeline, copying `package.json` and `Dockerfile` to the build directory.
 
 ### Examples
 To build a production build:
@@ -130,24 +130,24 @@ The configuration object has a number of fields that affect compilation globally
 | `browerSync` | A configuration object passed directly to browserSync. Omit the object to turn off browserSync. |
 | `preset` | The default preset name to use. |
 | `presets` | A hashmap of defined presets. |
-| `transforms` | The list of transforms to apply when building. |
+| `pipelines` | The list of pipelines to apply when building. |
 
-### Transforms
-All transforms are plain JS objects with some specific keys.
+### Pipelines
+All pipelines are plain JS objects with some specific keys.
 
-Every transform may specify these keys:
+Every pipeline may specify these keys:
 
 | key | value |
 |:--- |:----- |
-| `type` | (required) The type of transform to use. |
-| `id` | An optional unique ID for this transform. Duplicates are removed. |
-| `name` | A friendly name for the transform. |
-| `source` | (required) This transform's input files. |
-| `dest` | (required) This transform's output location. |
-| `disabled` | Whether this transform is turned off by default. Defaults to false. |
-| `config` | Extra parameters specific to the transform. |
+| `type` | (required) The type of pipeline to use. |
+| `id` | An optional unique ID for this pipeline. Duplicates are removed. |
+| `name` | A friendly name for the pipeline. |
+| `source` | (required) This pipeline's input files. |
+| `dest` | (required) This pipeline's output location. |
+| `disabled` | Whether this pipeline is turned off by default. Defaults to false. |
+| `config` | Extra parameters specific to the pipeline. |
 
-By specifying the same `id` in two transforms, values can be overridden in more specific contexts. Defining a transform with `id` of "test" in the base configuration, then defining another transform with the same `id` in a preset will allow the preset to override values.
+By specifying the same `id` in two pipelines, values can be overridden in more specific contexts. Defining a pipeline with `id` of "test" in the base configuration, then defining another pipeline with the same `id` in a preset will allow the preset to override values.
 
 For example:
 ```js
@@ -155,7 +155,7 @@ For example:
 	presets: {
 		production: {
 			out: "production",
-			transforms: [
+			pipelines: [
 				{
 					id: "test",
 					disabled: true
@@ -163,7 +163,7 @@ For example:
 			]
 		}
 	},
-	transforms: [
+	pipelines: [
 		{
 			id: "test",
 			name: "Test the Things!",
@@ -175,10 +175,10 @@ For example:
 }
 ```
 
-Here, when running in most any preset, the `test` transform will copy some files around. When the `production` preset is activated, the transform will be disabled.
+Here, when running in most any preset, the `test` pipeline will copy some files around. When the `production` preset is activated, the pipeline will be disabled.
 
 #### type `server`
-The `server` transform compiles TypeScript files recursively, targeted at server environments.
+The `server` pipeline compiles TypeScript files recursively, targeted at server environments.
 
 | key | value |
 |:--- |:----- |
@@ -192,7 +192,7 @@ The `config` parameter is an object with the following keys:
 | `typescript` | Passed directly to TypeScript |
 
 #### type `browser`
-The `browser` transform compiles an entry point TypeScript file and its dependencies into a Browserify bundle.
+The `browser` pipeline compiles an entry point TypeScript file and its dependencies into a Browserify bundle.
 
 | key | value |
 |:--- |:----- |
@@ -207,7 +207,7 @@ The `config` parameter is an object with the following keys:
 | `browserify` | Passed directly to Browserify |
 
 #### type `styles`
-The `styles` transform compiles an entry point Sass file into a single CSS bundle.
+The `styles` pipeline compiles an entry point Sass file into a single CSS bundle.
 
 The `config` parameter is an object with the following keys:
 
@@ -218,9 +218,7 @@ The `config` parameter is an object with the following keys:
 | `stylelint` | Passed directly to stylelint |
 
 #### type `static`
-The `static` transform copies files as-is and applies no changes to them.
-
-The `config` parameter is an object with the following keys:
+The `static` pipeline copies files as-is and applies no changes to them.
 
 | key | value |
 |:--- |:----- |
