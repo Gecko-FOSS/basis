@@ -109,7 +109,8 @@ const config = {
 			extraEntries: ["typings/main.d.ts"],
 			source: "node_modules/@server/**/*.ts",
 			dest: "node_modules/@server/",
-			typingsDest: "typings"
+			typingsDest: "typings",
+			typingsBaseName: "doh"
 		},
 
 		// Builds Isomorphic common files (node_modules/@common/)
