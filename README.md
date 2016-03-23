@@ -184,6 +184,8 @@ The `server` pipeline compiles TypeScript files recursively, targeted at server 
 |:--- |:----- |
 | `extraEntries` | Extra entries to pass to the TS compiler, usually typings (`.d.ts`) files |
 | `typingsDest` | The output directory for typings files. Not outputted if omitted. |
+| `moduleName` | The name of the module to export from the typings files. |
+| `moduleEntryPoint` | The file marked as the entry point of the module. |
 
 The `config` parameter is an object with the following keys:
 
