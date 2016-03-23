@@ -5,7 +5,7 @@
 
 ```sh
 npm install -g guh
-guh new [project-name]
+guh new
 ```
 
 A template project and generator for full-stack TypeScript and Sass (SCSS) projects.
@@ -32,7 +32,7 @@ See [CHANGES](CHANGES.md) for a complete changelog.
 - `node >=5.0`
 
 ## Generator
-Run `guh new [project-name]` (like GNU) to generate a new guh-enabled project. A wizard will guide you through your setup.
+Run `guh new` (like GNU) to generate a new guh-enabled project. A wizard will guide you through your setup.
 
 ## Upgrading
 guh is intended to be possible to upgrade in existing projects. Simply insert a new semver-compatible version from `node_modules/@build`; existing configurations will continue to function across minor and revision upgrades.
