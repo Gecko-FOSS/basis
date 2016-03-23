@@ -106,7 +106,8 @@ const config = {
 			type: "server",
 			extraEntries: ["typings/main.d.ts"],
 			source: "node_modules/@server/**/*.ts",
-			dest: "node_modules/@server/"
+			dest: "node_modules/@server/",
+			typingsDest: "typings"
 		},
 
 		// Builds Isomorphic common files (node_modules/@common/)
