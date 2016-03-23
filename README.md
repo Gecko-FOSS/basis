@@ -141,6 +141,7 @@ Every pipeline may specify these keys:
 |:--- |:----- |
 | `type` | (required) The type of pipeline to use. |
 | `id` | An optional unique ID for this pipeline. Duplicates are removed. |
+| `tags` | A list of tags to group this pipeline with others. |
 | `name` | A friendly name for the pipeline. |
 | `input` | (required) This pipeline's input files. |
 | `output` | (required) This pipeline's output location. |
