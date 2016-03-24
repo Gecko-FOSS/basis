@@ -44,7 +44,7 @@
     "node": ">=5.0"
   },
   "scripts": {
-    "start": "cd debug && nodemon main.js --watch node_modules/@server --watch node_modules/@common --watch main.js --ignore static"
+    "start": "cd debug && nodemon main.js --watch node_modules/app --watch main.js --ignore static"
   },
   "repository": {
     "type": "git",

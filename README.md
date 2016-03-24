@@ -6,6 +6,9 @@
 ```sh
 npm install -g guh
 guh new
+
+# cd into your new project and 'npm install', then 'gulp'
+# use 'npm start' to run the app!
 ```
 
 A template project and generator for full-stack TypeScript and Sass (SCSS) projects.
