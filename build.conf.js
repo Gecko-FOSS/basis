@@ -26,6 +26,11 @@ const server = {
 	typescript: tsConfig
 };
 
+// Compiler options on isomorphic JS
+const common = Object.assign({}, server, {
+	partialRebuild: false
+});
+
 // Compiler options on the client
 // typescript goes to tsify
 // browserify goes to browserify
