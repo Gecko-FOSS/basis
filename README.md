@@ -187,7 +187,6 @@ The `server` pipeline compiles TypeScript files recursively, targeted at server 
 | key | value |
 |:--- |:----- |
 | `extraEntries` | Extra entries to pass to the TS compiler, usually typings (`.d.ts`) files |
-| `partialRebuild` | Whether to rebuild only changed files. Faster, but may miss some errors. |
 | `typingsOutput` | The output directory for typings files. Not outputted if omitted. |
 | `moduleName` | The name of the module to export from the typings files. |
 | `moduleEntryPoint` | The file marked as the entry point of the module. |
@@ -197,6 +196,7 @@ The `config` parameter is an object with the following keys:
 | key | value |
 |:--- |:----- |
 | `typescript` | Passed directly to TypeScript |
+| `partialRebuild` | Whether to rebuild only changed files. Faster, but may miss some errors. |
 
 #### type `browser`
 The `browser` pipeline compiles an entry point TypeScript file and its dependencies into a Browserify bundle.
