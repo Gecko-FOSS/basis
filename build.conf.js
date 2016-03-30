@@ -27,7 +27,7 @@ const server = {
 };
 
 // Compiler options on isomorphic JS
-const common = Object.assign({}, server, {
+const serverCommon = Object.assign({}, server, {
 	partialRebuild: false
 });
 
@@ -125,7 +125,7 @@ const config = {
 		{
 			tags: ["server"],
 			name: "Server (Common)",
-			config: server,
+			config: serverCommon,
 			type: "server",
 
 			input: "node_modules/app/common/**/*.ts",
