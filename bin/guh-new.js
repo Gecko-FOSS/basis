@@ -124,7 +124,7 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 			},
 			dependencies: guh.dependencies,
 			devDependencies: guh.devDependencies,
-			bundledDependencies: guh.bundledDependencies,
+			bundleDependencies: guh.bundleDependencies,
 			scripts: guh.scripts
 		};
 
