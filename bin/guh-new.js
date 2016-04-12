@@ -115,19 +115,17 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 		fs.writeFileSync(path.join(out, "README.md"), README(name));
 
 		// Write new package.json
-		let packBody = fs.readFileSync(path.join(root, "package.json")).toString("utf8");
-		const pack = JSON.parse(packBody);
-		pack.author = undefined;
-		pack.bugs = undefined;
-		pack.homepage = undefined;
-		pack.repository = undefined;
-		pack.bin = undefined;
-
-		pack.name = name;
-		pack.version = "1.0.0";
-		pack.description = answers.description;
-		pack.guh = {
-			version: guh.version
+		const pack = {
+			name: name,
+			version: "1.0.0",
+			description: answers.description,
+			guh: {
+				version: guh.version
+			},
+			dependencies: guh.dependencies,
+			devDependencies: guh.devDependencies,
+			bundledDependencies: guh.bundledDependencies,
+			scripts: guh.scripts
 		};
 
 		const deps = pack.dependencies;
@@ -141,7 +139,7 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 		}
 		pack.dependencies = newDeps;
 
-		packBody = JSON.stringify(pack, null, 2);
+		const packBody = JSON.stringify(pack, null, 2);
 
 		fs.writeFileSync(path.join(out, "package.json"), packBody);
 
