@@ -152,7 +152,9 @@ prompt(`Project name? ${name ? "(" + name + ")" : ""} `, name)
 			fs.writeFileSync(path.join(out, `${name}.sublime-project`), body);
 		}
 
-		console.log("Scaffolded new project at ", out);
+		console.log("\nScaffolded new project at ", out);
+		console.log("You should change into that directory and run \"npm install\"");
+		console.log("After that's done, you can use \"guh build\" to build it!");
 	}).catch(e => {
 		console.error(e);
 	});

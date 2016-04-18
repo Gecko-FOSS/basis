@@ -34,11 +34,13 @@ See [CHANGES](CHANGES.md) for a complete changelog.
 ## Requirements
 - `node >=5.0`
 
-## Generator
+## Generator CLI
 Run `guh new` (like GNU) to generate a new guh-enabled project. A wizard will guide you through your setup.
 
 ## Upgrading
 guh is intended to be possible to upgrade in existing projects. Simply insert a new semver-compatible version from `node_modules/app/build`; existing configurations will continue to function across minor and revision upgrades.
+
+In guh 2.1, it will be possible to use the `guh update` command to update within semver-major versions.
 
 ## Usage
 The build system can be run in its default configuration with `gulp`. This loads the default preset defined in the configuration.
