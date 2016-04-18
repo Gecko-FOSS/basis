@@ -1,3 +1,5 @@
 "use strict";
 
-require("../gulpfile");
+const path = require("path");
+
+require(path.join(process.cwd(), "gulpfile"));
