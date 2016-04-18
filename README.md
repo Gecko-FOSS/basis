@@ -7,7 +7,7 @@
 npm install -g guh
 guh new
 
-# cd into your new project and 'npm install', then 'gulp'
+# cd into your new project and 'npm install', then 'guh build'
 # use 'npm start' to run the app!
 ```
 
