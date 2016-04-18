@@ -43,7 +43,7 @@ guh is intended to be possible to upgrade in existing projects. Simply insert a 
 In guh 2.1, it will be possible to use the `guh update` command to update within semver-major versions.
 
 ## Usage
-The build system can be run in its default configuration with `gulp`. This loads the default preset defined in the configuration.
+The build system can be run in its default configuration with `guh build` (or `gulp`). This loads the default preset defined in the configuration.
 
 Flags can be set with the following syntax:
 - `--flag`: enable
@@ -96,17 +96,17 @@ The default production preset also adds an extra pipeline, copying `package.json
 ### Examples
 To build a production build:
 ```
-gulp --preset=production
+guh build --preset=production
 ```
 
 To build just stylesheets once in debug mode:
 ```
-gulp --watch=no --only=stylesheets
+guh build --watch=no --only=stylesheets
 ```
 
 To build a debug build without sourcemaps, but with minification to `./derp`, try
 ```
-gulp --sourcemaps=no --minify --out=derp
+guh build --sourcemaps=no --minify --out=derp
 ```
 
 ## Files
