@@ -1,14 +1,17 @@
 # guh Changes
 
-## 2.0.0 (WIP)
+## 2.0.0 (beta)
 - Renamed from Basis to guh
 - Rewrite from the ground-up
-- Build modules now in `node_modules/@build`
-- Switched from LiveReload to BrowserSync
-- Switched from Ruby Sass to libsass
+	- Moved build system core to `guh-core` package
+	- Switched from LiveReload to BrowserSync
+	- Switched from Ruby Sass to libsass
 - Now requires Node ^5.0
 - More flexible configuration format
 	- Local configuration support
+- Added CLI
+	- `guh new` to generate
+	- `guh build` to build
 
 ## 1.2.1
 - Fixed version number in `package.json`

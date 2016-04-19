@@ -38,9 +38,7 @@ See [CHANGES](CHANGES.md) for a complete changelog.
 Run `guh new` (like GNU) to generate a new guh-enabled project. A wizard will guide you through your setup.
 
 ## Upgrading
-guh is intended to be possible to upgrade in existing projects. Simply insert a new semver-compatible version from `node_modules/app/build`; existing configurations will continue to function across minor and revision upgrades.
-
-In guh 2.1, it will be possible to use the `guh update` command to update within semver-major versions.
+Upgrading the `guh-core` package should be safe within [SemVer](//semver.org/) bounds. Configurations will stay valid across minor version upgrades, but are not guaranteed across major version changes.
 
 ## Usage
 The build system can be run in its default configuration with `guh build` (or `gulp`). This loads the default preset defined in the configuration.
