@@ -4,7 +4,7 @@
   "description": "A full-stack project template and generator",
   "dependencies": {
     "express": "^4.13.3",
-    "fs-extra": "^0.26.3",
+    "fs-extra": "^0.28.0",
     "source-map-support": "^0.4.0",
     "ws": "^1.0.1"
   },
@@ -16,7 +16,6 @@
     "browser-sync": "^2.10.1",
     "browserify": "^13.0.0",
     "cssnano": "^3.5.2",
-    "fs-extra": "^0.28.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-insert": "^0.5.0",
