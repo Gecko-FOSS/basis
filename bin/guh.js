@@ -8,7 +8,7 @@ const aliases = {
 	v: "version",
 	"-v": "version",
 	n: "new",
-	u: "update"
+	b: "build"
 };
 
 let command = process.argv[2] || "help";
