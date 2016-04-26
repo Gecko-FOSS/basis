@@ -12,7 +12,8 @@
     "app"
   ],
   "devDependencies": {
-    "guh-core": "^1.0.0"
+    "guh-core": "^1.1.0",
+    "gulp": "^3.9.1"
   },
   "preferGlobal": true,
   "bin": {
