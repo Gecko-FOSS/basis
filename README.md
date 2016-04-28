@@ -56,7 +56,8 @@ Flags can be set with the following syntax:
 | `minify`      | no       | Minify client code                             |
 | `notify`      | no       | Notify on build completion                     |
 | `browsersync` | no       | Run client via Browsersync                     |
-| `once`        | no     | Turns off Browserync and file watching if set.   |
+| `once`        | no       | Turns off Browserync and file watching if set. |
+| `dry`         | no       | Turns off output to the filesystem.            |
 
 *Default values are used if the configuration does not specify a value and value was given on the CLI.*
 
@@ -148,7 +149,8 @@ Every pipeline may specify these keys:
 | `tags` | A list of tags to group this pipeline with others. |
 | `name` | A friendly name for the pipeline. |
 | `input` | (required) This pipeline's input files. |
-| `output` | (required) This pipeline's output location. |
+| `output` | This pipeline's output location. |
+| `dry` | Set to true to disable writing to the filesystem. |
 | `disabled` | Whether this pipeline is turned off by default. Defaults to false. |
 | `config` | Extra parameters specific to the pipeline. |
 
