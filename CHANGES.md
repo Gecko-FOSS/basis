@@ -1,6 +1,6 @@
 # guh Changes
 
-## 2.0.0 (beta)
+## 2.0.0
 - Renamed from Basis to guh
 - Rewrite from the ground-up
 	- Moved build system core to `guh-core` package
