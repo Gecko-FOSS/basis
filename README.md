@@ -49,13 +49,14 @@ Flags can be set with the following syntax:
 - `--flag=no`, `--flag=false`: disable
 
 ### Flags
-| flag          | default  | function                         |
-|:------------- |:-------- |:-------------------------------- |
-| `watch`       | no       | Watch the filesystem for changes |
-| `sourcemaps`  | yes      | Build sourcemaps for client code |
-| `minify`      | no       | Minify client code               |
-| `notify`      | no       | Notify on build completion       |
-| `browsersync` | no       | Run client via Browsersync       |
+| flag          | default  | function                                       |
+|:------------- |:-------- |:---------------------------------------------- |
+| `watch`       | no       | Watch the filesystem for changes               |
+| `sourcemaps`  | yes      | Build sourcemaps for client code               |
+| `minify`      | no       | Minify client code                             |
+| `notify`      | no       | Notify on build completion                     |
+| `browsersync` | no       | Run client via Browsersync                     |
+| `once`        | no     | Turns off Browserync and file watching if set.   |
 
 *Default values are used if the configuration does not specify a value and value was given on the CLI.*
 
@@ -78,7 +79,7 @@ Presets set default values for many of these flags and parameters.
 | `watch`       | yes       |
 | `sourcemaps`  | yes       |
 | `minify`      | no        |
-| `browsersync` | yes       | 
+| `browsersync` | yes       |
 
 #### Production
 | key           | value          |
