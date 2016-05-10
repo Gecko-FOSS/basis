@@ -192,8 +192,9 @@ The `server` pipeline compiles TypeScript files recursively, targeted at server 
 |:--- |:----- |
 | `extraEntries` | Extra entries to pass to the TS compiler, usually typings (`.d.ts`) files |
 | `typingsOutput` | The output directory for typings files. Not outputted if omitted. |
-| `moduleName` | The name of the module to export from the typings files. |
-| `moduleEntryPoint` | The file marked as the entry point of the module. |
+| `typingsOutputType` | The type of typings to output. "ambient" bundles into a single file, "module" creates typings suitable for bundling in an npm module. Defaults to ambient. |
+| `moduleName` | The name of the module to export from the typings files. Only used in "ambient" typings output. |
+| `moduleEntryPoint` | The file marked as the entry point of the module. Only used in "ambient" typings output. |
 
 The `config` parameter is an object with the following keys:
 
