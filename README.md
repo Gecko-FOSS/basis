@@ -154,6 +154,7 @@ Every pipeline may specify these keys:
 | `disabled` | Whether this pipeline is turned off by default. Defaults to false. |
 | `config` | Extra parameters specific to the pipeline. |
 | `callback` | A callback to call when a file finishes building. Parameters are `(pipeline, filePath, fileContents)` |
+| `watchPaths` | A list of glob-enabled paths to watch for file changes. Works on all pipeline types except `browser` (guh-core 1.5.0+) |
 
 By specifying the same `id` in two pipelines, values can be overridden in more specific contexts. Defining a pipeline with `id` of "test" in the base configuration, then defining another pipeline with the same `id` in a preset will allow the preset to override values.
 
