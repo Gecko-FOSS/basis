@@ -1,5 +1,8 @@
 # guh Changes
 
+## HEAD
+- Updated typings to match Typings 1.0
+
 ## 2.0.0
 - Renamed from Basis to guh
 - Rewrite from the ground-up

@@ -7,7 +7,7 @@
 		"noEmitOnError": true
 	},
 	"files": [
-		"typings/main.d.ts",
+		"typings/index.d.ts",
 		"node_modules/app/common/core.ts",
 		"node_modules/app/client/main.ts",
 		"node_modules/app/server/main.ts"

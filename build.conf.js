@@ -114,7 +114,7 @@ const config = {
 			input: "node_modules/app/server/**/*.ts",
 			output: "node_modules/app/server/",
 
-			extraEntries: ["typings/main.d.ts"],
+			extraEntries: ["typings/index.d.ts"],
 
 			typingsOutput: "typings/index.d.ts",
 			moduleName: pack.name,
@@ -131,7 +131,7 @@ const config = {
 			input: "node_modules/app/common/**/*.ts",
 			output: "node_modules/app/common/",
 
-			extraEntries: ["typings/main.d.ts"]
+			extraEntries: ["typings/index.d.ts"]
 		},
 
 		// Copies the server bootstrap file
@@ -155,7 +155,7 @@ const config = {
 			input: "node_modules/app/client/main.ts",
 			output: "static/bundle.js",
 
-			extraEntries: ["typings/browser.d.ts"],
+			extraEntries: ["typings/index.d.ts"],
 		},
 
 		// Compiles all style files
