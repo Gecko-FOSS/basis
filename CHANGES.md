@@ -1,6 +1,6 @@
 # guh Changes
 
-## HEAD
+## 2.0.1
 - Updated typings to match Typings 1.0
 
 ## 2.0.0
