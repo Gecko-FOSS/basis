@@ -1,14 +1,7 @@
 "use strict";
 
 const pack = require("./package.json");
-
-// Load TypeScript from our dependencies
-try {
-	var typescript = require("typescript");
-} catch(e) {
-	console.error("Couldn't load some dependencies; try running 'npm install'");
-	process.exit(1);
-}
+const typescript = require("typescript");
 
 // General typescript options on both the client and server
 const tsConfig = {
